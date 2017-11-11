@@ -8,9 +8,9 @@ class ProductController extends Controller{
 		if ($keyword) {
 			$pm->where(array(sprintf('`category_level_1_id` like \'%s\'',$keyword),' AND main_photo = 1'));            
 			$cm = new CategoryModel(1);
-			$cm->where_select(array(sprintf('`category_level_1_id` =\'%s\'',$keyword )));
-			$category = $cm->select('category_level_1_id',$keyword);
-			$title = $category['category_level_1_name'];
+			$cm->where(array(sprintf('`category_level_1_id` =\'%s\'',$keyword )));
+			$category = $cm->selectAll('category_level_1_id',$keyword);
+			$title = $category[0]['category_level_1_name'];
         } else {
 			$pm->where(array('main_photo = 1'));
 			

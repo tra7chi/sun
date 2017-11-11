@@ -40,25 +40,17 @@ class Sql{
     // query all
     public function selectAll(){
         $sql = sprintf("select * from `%s` %s", $this->_table, $this->filter);
-        //echo $sql.'<br>';
+        // echo $sql.'<br>';
 		$sth = $this->_dbHandle->prepare($sql);
         $sth->execute();
 
         return $sth->fetchAll();
     }
-    
-	 public function where_select($where = array()){
-		 if (isset($where)) {
-            $this->filter .= ' AND ';
-            $this->filter .= implode(' ', $where);
-        }
-        return $this;
-	}
 
     // query by ID
-    public function select($id_name,$id){
+    public function select($id_name, $id){
         $sql = sprintf("select * from `%s` where `%s` like '%s' %s", $this->_table, $id_name,$id,$this->filter);
-		//echo $sql;
+		// echo $sql;
         $sth = $this->_dbHandle->prepare($sql);
         $sth->execute();
 

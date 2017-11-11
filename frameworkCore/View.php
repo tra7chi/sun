@@ -20,7 +20,7 @@ class View {
     // render view
     public function render(){
         extract($this->variables);
-		print_r($this);
+		// print_r($this);
 		$controllerHeader = isset($header) ? $header : '';
 		$controllerFooter = isset($header) ? $header : '';
 		$redirectPage = isset($rewritePath) ? $rewritePath : '';
