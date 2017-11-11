@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /sun-cashmere
+#if request is an real data or directory, access it direct. 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#if request is not an real data or directory, transmit this request to index.php.
+RewriteRule . index.php
