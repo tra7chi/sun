@@ -1,0 +1,31 @@
+/*---------------- special settings for main content (temporarily) ---------------- */
+
+.main_content_container .list_item {
+	font-size: 1.6rem;
+}
+
+.main_content_container .list_item.title {
+	font-size: 1rem;
+	color: #b4aeae;
+	padding-top: 20px;
+}
+
+.main_content_container .contact_info section {
+	font-size: 1rem;
+	/*padding-bottom: 30px;*/
+	clear: both;
+}
+
+.main_content_container section .google_map_frame {
+	padding-top: 30px;
+}
+
+.main_content_container .catalog_cover {
+		margin: 20px 0 10px;
+	}
+
+.main_content_container .catalog_cover img {
+	/*height: 623px;*/
+	max-height: 100%;
+	max-width: 100%;
+}

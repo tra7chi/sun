@@ -1,0 +1,28 @@
+/*---------------- settings for static page content ---------------- */
+section {
+	padding: 50px 0;
+	border-bottom: 1px solid #333333;
+}
+
+.page_content_box.static {
+	font-family: 'butler-light', Fallback, sans-serif;
+    font-size: 1.2rem;
+}
+
+.page_content_box.static .swiper-container {
+	width: 600px;
+	height: 400px;
+}
+
+.page_content_box.static .swiper-container .swiper-slide img {
+	width: 100%;
+	height: 100%;
+}
+.page_content_box.static .header > h3 {
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+.page_content_box.static .body .images {
+	padding-bottom: 30px;
+}

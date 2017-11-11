@@ -1,0 +1,31 @@
+/*---------------- custom defined fonts ---------------- */
+@font-face {
+    font-family: 'butler-regular';
+    src: url('../fonts/butler/butler_regular-webfont.woff2') format('woff2'), 
+    url('../fonts/butler/butler_regular-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'butler-medium';
+    src: url('../fonts/butler/butler_medium-webfont.woff2') format('woff2'), 
+    url('../fonts/butler/butler_medium-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'butler-black';
+    src: url('../fonts/butler/butler_black-webfont.woff2') format('woff2'), 
+    url('../fonts/butler/butler_black-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'butler-light';
+    src: url('../fonts/butler/butler_light-webfont.woff2') format('woff2'), 
+    url('../fonts/butler/butler_light-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'butler-ultra-light';
+    src: url('../fonts/butler/butler_ultra_light-webfont.woff2') format('woff2'), 
+    url('../fonts/butler/butler_ultra_light-webfont.woff') format('woff');
+}
+

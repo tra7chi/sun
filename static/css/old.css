@@ -1,0 +1,529 @@
+/*---------------- global general settings ---------------- */
+
+.page_container {  /* page settings for footer to stay at bottom */
+	position: relative;	
+	min-height: 100%;
+	height: auto !important;
+	height: 100%; /* IE6 cannot recognize min-height */
+}
+
+.main_content_container {
+	margin: 0 auto;
+	/* padding-bottom keeps space between main content and footer which has height 170px */
+	/*padding: 150px 0 200px; */
+}
+
+.main_content_container > h3 {
+	padding-bottom: 30px;
+}
+
+.content_box {
+	float: left;
+}
+
+.catalog {
+	display: inline-block;
+	position: relative;
+}
+
+.catalog .navigation_button_wrapper {
+	width: 50%;
+	height: 100%;
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+}
+
+.catalog .navigation_button_wrapper.prev {	
+	left: 0;
+}
+
+.catalog .navigation_button_wrapper.next {
+	right: 0;
+}
+
+.catalog .navigation_button {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	/*right: 0;*/
+}
+
+.catalog .navigation_button .navigation_button_special_effect {
+	position: absolute;
+	display: inline-block;	
+	-webkit-transform: perspective(1px) translateZ(0);
+	-moz-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);	
+	box-shadow: 0 0 1px transparent;
+	width: 10rem;
+	height: 10rem;
+}
+
+.catalog .prev_page .navigation_button_special_effect {
+	
+}
+
+.catalog .navigation_button.next_page .navigation_button_special_effect {
+	/*position: absolute;*/
+	right: 0;
+}
+
+.catalog .navigation_button .navigation_button_special_effect:before {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	/*bottom: 0;*/
+	top: 0;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: width, height;
+	-moz-transition-property: width, height;
+	transition-property: width, height;
+}
+
+.catalog .navigation_button.prev_page .navigation_button_special_effect:before {
+	left: 0;
+	-webkit-background: linear-gradient(135deg, #ffffff 45%, #aaaaaa 50%, #cccccc 56%, #ffffff 80%);
+	-moz-background: linear-gradient(135deg, #ffffff 45%, #aaaaaa 50%, #cccccc 56%, #ffffff 80%);
+	-o-background: linear-gradient(135deg, #ffffff 45%, #aaaaaa 50%, #cccccc 56%, #ffffff 80%);
+	background: linear-gradient(135deg, #ffffff 45%, #aaaaaa 50%, #cccccc 56%, #ffffff 80%);
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.catalog .navigation_button.next_page .navigation_button_special_effect:before {
+	right: 0;
+	-webkit-background: linear-gradient(225deg, #ffffff 45%, #aaaaaa 50%, #cccccc 56%, #ffffff 80%);
+	-moz-background: linear-gradient(225deg, #ffffff 45%, #aaaaaa 50%, #cccccc 56%, #ffffff 80%);
+	-o-background: linear-gradient(225deg, #ffffff 45%, #aaaaaa 50%, #cccccc 56%, #ffffff 80%);
+	background: linear-gradient(225deg, #ffffff 45%, #aaaaaa 50%, #cccccc 56%, #ffffff 80%);
+	box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.catalog .prev_page:hover .navigation_button_special_effect:before,
+.catalog .next_page:hover .navigation_button_special_effect:before {
+	width: 100%;
+	height: 100%;
+}
+
+.download_high_quality_catalog_wrapper {
+	margin-top: 50px;
+	/*font-size: 5em;	*/
+}
+
+.download_high_quality_catalog_wrapper a {
+	text-decoration: none;
+}
+
+/*---------------- custom defined fonts ---------------- */
+
+@font-face {
+	font-family: 'ostrich-sans-black';
+	src: url('../fonts/ostrich-sans/ostrich-sans-black.ttf') format('truetype'),
+		 url('../fonts/ostrich-sans/ostrich-sans-black.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-bold';
+	src: url('../fonts/ostrich-sans/ostrich-sans-bold.ttf') format('truetype'),
+		 url('../fonts/ostrich-sans/ostrich-sans-bold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-dashed';
+	src: url('../fonts/ostrich-sans/ostrich-sans-dashed.ttf') format('truetype'),
+		 url('../fonts/ostrich-sans/ostrich-sans-dashed.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-inline-italic';
+	src: url('../fonts/ostrich-sans/ostrich-sans-inline-italic.ttf') format('truetype'),
+		 url('../fonts/ostrich-sans/ostrich-sans-inline-italic.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-inline-regular';
+	src: url('../fonts/ostrich-sans/ostrich-sans-inline-regular.ttf') format('truetype'),
+		 url('../fonts/ostrich-sans/ostrich-sans-inline-regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-light';
+	src: url('../fonts/ostrich-sans/ostrich-sans-light.ttf') format('truetype'),
+		 url('../fonts/ostrich-sans/ostrich-sans-light.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-regular';
+	src: url('../fonts/ostrich-sans/ostrich-sans-regular.ttf') format('truetype'),
+		 url('../fonts/ostrich-sans/ostrich-sans-regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-rounded';
+	src: url('../fonts/ostrich-sans/ostrich-sans-rounded.ttf') format('truetype'),
+		 url('../fonts/ostrich-sans/ostrich-sans-rounded.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-heavy';
+	src: url('../fonts/ostrich-sans/OstrichSans-Heavy.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-medium';
+	src: url('../fonts/ostrich-sans/OstrichSans-Medium.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-dashed-medium';
+	src: url('../fonts/ostrich-sans/OstrichSansDashed-Medium.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'ostrich-sans-rounded-medium';
+	src: url('../fonts/ostrich-sans/OstrichSansRounded-Medium.otf') format('opentype');
+}
+
+/* FOOTER: general settings */
+
+footer {
+    background-color: #0f0f0f;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 170px;
+    clear: both;
+}
+
+.footer_element_container {
+    color: #ffffff;
+    float: none;
+    clear: both;
+    padding: 10px 0;
+}
+
+.footer_element {
+    margin: 0 auto;
+}
+
+.footer_element_column {
+    font-size: 1.6rem;
+}
+
+.footer_element_column li {
+    font-size: 1rem;
+    list-style: none;
+    padding-top: 5px;
+}
+
+/*--------------- Horizontal Footer for Smaller Breakpoints ---------------*/
+.footer_element.horizontal {
+	display: none;
+}
+
+.footer_element.horizontal .footer_element_column {
+	font-weight: bold;
+}
+
+.footer_element.horizontal .row {
+	padding-bottom: 10px;
+}
+
+.footer_element.horizontal li {
+	float: left;
+	padding: 0 10px;
+	font-size: 1.5rem;
+	font-weight: normal;
+}
+
+
+
+
+/*--------------- Copyright ---------------*/
+
+.footer_element.footer_copyright {
+    color: #818181;
+    font-size: 1rem;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+/*---------------- special settings for main content (temporarily) ---------------- */
+
+.main_content_container .list_item {
+	font-size: 1.6rem;
+}
+
+.main_content_container .list_item.title {
+	font-size: 1rem;
+	color: #b4aeae;
+	padding-top: 20px;
+}
+
+.main_content_container .contact_info section {
+	font-size: 1rem;
+	/*padding-bottom: 30px;*/
+	clear: both;
+}
+
+.main_content_container section .google_map_frame {
+	padding-top: 30px;
+}
+
+.main_content_container .catalog_cover {
+		margin: 20px 0 10px;
+	}
+
+.main_content_container .catalog_cover img {
+	/*height: 623px;*/
+	max-height: 100%;
+	max-width: 100%;
+}
+
+/*@media screen and (min-width: 1259px) {
+	.main_content_container,
+	header .header_element,
+	footer .header_element {
+		width: 1259px ;
+	}
+}*/
+
+
+/*@media screen and (min-width: 1024px) and (max-width: 1258px) {
+	.main_content_container,
+	header .header_element,
+	footer .header_element {
+		width: 1024px ;
+	}
+}*/
+
+
+/*----------------  col-lg-*  ---------------- */
+
+@media screen and (min-width: 1200px) {
+    .main_content_container,
+    header .header_element,
+    footer .footer_element {
+        width: 1200px;
+    }
+}
+
+
+/*----------------  col-md-*  ---------------- */
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .main_content_container,
+    header .header_element,
+    footer .footer_element {
+        width: 992px;
+    }
+}
+
+
+/*----------------  col-sm-*  ---------------- */
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .main_content_container,
+    header .header_element,
+    footer .footer_element {
+        width: 768px;
+    }
+
+    html,
+    body {
+        font-size: 50% !important;
+    }
+
+    /*-------------  Header  ------------- */
+    .global_header_navigation .global_header_search {
+        margin-left: 0 !important;
+    }
+
+    .global_header_navigation .global_header_search input {
+        display: none;
+    }
+
+    /*-------------  Footer  ------------- */
+    .footer_element.vertical {
+        display: none;
+    }
+
+    .footer_element.horizontal {
+        display: block !important;
+    }
+}
+
+
+/*----------------  col-xs-*  ---------------- */
+
+@media screen and (min-width: 640px) and (max-width: 767px) {
+    .main_content_container,
+    header .header_element,
+    footer .footer_element {
+        width: 640px;
+    }
+
+    html,
+    body {
+        font-size: 50% !important;
+    }
+    
+    /*-------------  Header  ------------- */
+    .global_header_navigation .global_header_search {
+        margin-left: 0 !important;
+    }
+
+    .global_header_navigation .global_header_search input {
+        display: none;
+    }
+
+    /*-------------  Footer  ------------- */
+    .footer_element.vertical {
+        display: none;
+    }
+
+    .footer_element.horizontal {
+        display: block !important;
+    }
+}
+
+
+/* use this breakpoint for medium phone, so classes start with 'col-pm-*' */
+
+
+/*@media screen and (min-width: 480px) and (max-width: 639px) {*/
+
+@media screen and (max-width: 639px) {
+    .main_content_container,
+    header .header_element,
+    footer .footer_element {
+        width: 480px;
+    }
+
+    .col-pm-12 {
+        width: 100%;
+    }
+    .col-pm-11 {
+        width: 91.66666667%;
+    }
+    .col-pm-10 {
+        width: 83.33333333%;
+    }
+    .col-pm-9 {
+        width: 75%;
+    }
+    .col-pm-8 {
+        width: 66.66666667%;
+    }
+    .col-pm-7 {
+        width: 58.33333333%;
+    }
+    .col-pm-6 {
+        width: 50%;
+    }
+    .col-pm-5 {
+        width: 41.66666667%;
+    }
+    .col-pm-4 {
+        width: 33.33333333%;
+    }
+    .col-pm-3 {
+        width: 25%;
+    }
+    .col-pm-2 {
+        width: 16.66666667%;
+    }
+    .col-pm-1 {
+        width: 8.33333333%;
+    }
+
+    html,
+    body {
+        font-size: 40% !important;
+    }
+
+    /*-------------  Header  ------------- */
+    .global_header_navigation .global_header_search {
+        margin-left: 0 !important;
+        /*padding: 20px !important;*/
+    }
+
+    .global_header_navigation .global_header_search input {
+        display: none;
+    }
+    
+    /*-------------  Main Content  ------------- */
+    .main_content_container {
+        padding-top: 190px !important;
+    }
+
+    /*-------------  Footer  ------------- */
+    .footer_element.vertical {
+        display: none;
+    }
+
+    .footer_element.horizontal {
+        display: block !important;
+    }
+}
+
+
+/* use this breakpoint for small phone, so classes start with 'col-ps-*' */
+
+/*@media screen and (min-width: 320px) and (max-width: 479px) {*/
+@media screen and (max-width: 479px) {
+    .main_content_container,
+    header .header_element,
+    footer .footer_element {
+        width: 320px;
+    }
+
+    .col-ps-12 {
+        width: 100%;
+    }
+    .col-ps-11 {
+        width: 91.66666667%;
+    }
+    .col-ps-10 {
+        width: 83.33333333%;
+    }
+    .col-ps-9 {
+        width: 75%;
+    }
+    .col-ps-8 {
+        width: 66.66666667%;
+    }
+    .col-ps-7 {
+        width: 58.33333333%;
+    }
+    .col-ps-6 {
+        width: 50%;
+    }
+    .col-ps-5 {
+        width: 41.66666667%;
+    }
+    .col-ps-4 {
+        width: 33.33333333%;
+    }
+    .col-ps-3 {
+        width: 25%;
+    }
+    .col-ps-2 {
+        width: 16.66666667%;
+    }
+    .col-ps-1 {
+        width: 8.33333333%;
+    }
+
+    /*-------------  Footer  ------------- */
+    .footer_element.vertical {
+        display: none;
+    }
+
+    .footer_element.horizontal {
+        display: block !important;
+    }
+}

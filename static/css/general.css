@@ -1,0 +1,123 @@
+/*---------------- global general settings ---------------- */
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	font-size: 62.5%;
+	min-height: 100%;
+}
+
+.bold-font {
+	font-weight: bold;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.hidden {
+	display: none !important;
+}
+
+/* for horizontal layout */
+.visible {
+	display: inline-flex !important; 
+}
+.catelogy_title_short{
+	text-align:center;
+	background: url(../img/lined_headline.gif) center center no-repeat;
+	margin-bottom:2rem;
+}
+.catelogy_title_middle{
+	text-align:center;
+	background: url(../img/lined_headline2.gif) center center no-repeat;
+	margin-bottom:2rem;
+}
+.horizontal_layout{
+	display:inline-block;
+	vertical-align:top;
+	margin:0 0.3rem;
+}
+.product_cell{
+	padding:1rem;
+	text-align:center;
+}
+.product_text{
+	font-family: 'Neuzeit S LT W01 Book', Arial;
+	margin-bottom:1rem;
+}
+
+.bigger_font{
+	font-size:2rem;
+}
+.big_font{
+	font-size:1rem;
+}
+.middle_font{
+	font-size:0.6rem;
+}
+.small_font{
+	font-size:0.4rem;
+}
+.grey{
+	color:#585858;
+}
+
+.black_button_big{
+	display:inline-block;
+	width:25rem;
+	height:4rem;
+	font-size:2rem;
+	background-color:#000;
+	color:#FFF;
+	font-weight:bold;
+	text-align:center;
+	line-height:4rem;
+}
+.black_button_big:hover{
+	background-color:#999;
+	color:#000;
+}
+
+.black_button{
+	display:inline-block;
+	width:10rem;
+	height:2rem;
+	font-size:1rem;
+	background-color:#000;
+	color:#FFF;
+	font-weight:bold;
+	text-align:center;
+	line-height:2rem;
+}
+.black_button:hover{
+	background-color:#999;
+	color:#000;
+}
+.hide{
+	display:none;
+}
+.colors{
+	border:1px solid #000;
+	border-radius:0.3rem;
+
+}
+.link{
+	cursor:pointer
+}
+
+a{
+	text-decoration:none;
+	color:#000;
+}

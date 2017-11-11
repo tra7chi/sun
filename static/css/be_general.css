@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+input.grey_border,select.grey_border{
+	border:1px solid #CCC;
+	height:2rem;
+	width:20rem;
+	font-size:1rem;
+}
+input.black_button{
+	width:10rem;
+	height:2rem;
+	font-size:1rem;
+	background-color:#000;
+	color:#FFF;
+	font-weight:bold;
+}
+input.black_button:hover{
+	background-color:#999;
+	color:#000;
+}
+textarea.grey_border{
+	border:1px solid #CCC;
+	height:20rem;
+	width:95%;
+	font-size:1rem;
+}
+.title_bottom_line{
+	border-bottom:solid 2px #000000;
+	padding-bottom:2rem;
+	margin-bottom:2rem;
+}
+.title_top_line{
+	border-top:solid 2px #000000;
+	padding-top:2rem;
+	margin-top:2rem;
+	text-align:right;
+}
+table.black{
+	width:98%;
+}
+table.black th{
+	background-color:#000;
+	color:#FFF;
+	font-weight:bold;	
+}
+table.black td{
+	border-bottom:#000 1px solid;
+	text-align:center;
+}
+a{
+	text-decoration:none;
+	color:#000;
+}
+
+.small_black_button{
+	display:inline-block;
+	width:4.5rem;
+	height:1.2rem;
+	font-size:0.6rem;
+	background-color:#000;
+	color:#FFF;
+	font-weight:bold;
+	text-align:center;
+	line-height:1.2rem;
+}
+.small_black_button:hover{
+	background-color:#999;
+	color:#000;
+}
+.box{
+	margin-bottom:1rem;
+}
+.error_feedback{
+	background-color:#ffd5d5;
+	color:#900;
+	height:2rem;
+	line-height:2rem;
+}
+input.middle_textbox{
+	width:14rem;	
+}
+input.small_textbox{
+	width:4rem;
+}
+div.input_margin{
+	margin:0.3rem;
+}

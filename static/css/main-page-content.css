@@ -1,0 +1,14 @@
+/*---------------- general settings for main page content ---------------- */
+#main_page_content {
+	position: relative;
+	top: 167px; /*or 107px*/
+	width: 100%;
+	font-family: 'butler-light', Fallback, sans-serif;
+    font-size: 1.5rem;
+}
+
+.main_container,
+.main_container section {
+	margin: 0 auto;
+}
+
