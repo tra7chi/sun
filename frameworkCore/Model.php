@@ -7,8 +7,7 @@ class Model extends Sql{
 
     public function __construct(){
         // connect to DB
-        $this->connect(self::$_dbConfig['host'], self::$_dbConfig['username'], self::$_dbConfig['password'],
-            self::$_dbConfig['dbname']);
+        $this->connect(self::$_dbConfig['host'], self::$_dbConfig['username'], self::$_dbConfig['password'], self::$_dbConfig['dbname']);
 
         // get DB table name
         if (!$this->_table) {

@@ -13,7 +13,7 @@ class Sql{
             $this->_dbHandle = new PDO($dsn, $username, $password, $option);
 			//print_r($this->_dbHandle);
         } catch (PDOException $e) {
-            exit('错误: ' . $e->getMessage());
+            exit('error message: ' . $e->getMessage());
         }
     }
 
@@ -46,6 +46,7 @@ class Sql{
 
         return $sth->fetchAll();
     }
+    
 	 public function where_select($where = array()){
 		 if (isset($where)) {
             $this->filter .= ' AND ';

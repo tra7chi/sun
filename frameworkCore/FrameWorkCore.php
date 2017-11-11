@@ -32,7 +32,8 @@ class FrameWorkCore{
         $url = $_SERVER['REQUEST_URI'];
 		//$url = '/products/index/32refsadfqre';
 		//echo 'url: ' . $url . '<br />';
-        // 清除?之后的内容
+
+        // delete the content after ?
         $position = strpos($url, '?');
         $url = $position === false ? $url : substr($url, 0, $position);
         // 删除前后的“/”
@@ -98,6 +99,7 @@ class FrameWorkCore{
     public function setReporting(){
         if (APP_DEBUG === true) {
             error_reporting(E_ALL);
+            // ini_set: set value for configuration option
             ini_set('display_errors','On');
         } else {
             error_reporting(E_ALL);
@@ -140,43 +142,46 @@ class FrameWorkCore{
         }
     }
 
-    // 配置数据库信息
+    // apply DB configuration information
     public function setDbConfig(){
         if ($this->_config['db']) {
             Model::setDbConfig($this->_config['db']);
         }
     }
 
-    // 自动加载控制器和模型类 
+    // autoload controllers and models classes
     public static function loadClass($class){
-		//echo '$class:'.$class.'<br />';
+		// echo '$class:'.$class.'<br />';
         $frameworks = __DIR__ .'/'. $class . '.php';
-		//echo $frameworks.'<br />';
-		if(substr($class,0,3)=='BE_'){
+		// echo $frameworks.'<br />';
+
+		if(substr($class, 0, 3)=='BE_'){
 		 	$controllers = APP_PATH . 'application/controllers/back_end/' . $class . '.php';
-        	$models = APP_PATH . 'application/models/' . substr($class,3) . '.php';
+        	$models = APP_PATH . 'application/models/' . substr($class, 3) . '.php';
 		}
 		else{
 		    $controllers = APP_PATH . 'application/controllers/front_end/' . $class . '.php';
         	$models = APP_PATH . 'application/models/' . $class . '.php';
 		}
+
 		//echo '$frameworks:'.$frameworks.'<br />';
 		//echo '$controllers:'.$controllers.'<br />';
 		//echo '$models:'.$models.'<br />';
+
         if (file_exists($frameworks)) {
-            // 加载框架核心类
+            // load FrameworkCore class
             include $frameworks;
-			//echo "加载框架核心类:" .$frameworks.'成功<br />';
+			//echo "Loading FrameworkCore class:" .$frameworks.' successfully completed. <br />';
         } elseif (file_exists($controllers)) {
-            // 加载应用控制器类
+            // load Controller class
             include $controllers;
-			//echo "加载应用控制器类:" .$controllers.'成功<br />';
+			//echo "Loading Controller class:" .$controllers.' successfully completed. <br />';
         } elseif (file_exists($models)) {
-            //加载应用模型类
+            // load Model class
             include $models;
-			//echo "加载应用模型类:" .$models.'成功<br />';
+			//echo "Loading Model class:" .$models.' successfully completed. <br />';
         } else {
-            // 错误代码
+            // error handler ...
         }
     }
 }
