@@ -1,6 +1,7 @@
 <?php
-// 应用目录为当前目录
+// apply the current directory
 define('APP_PATH', __DIR__ . '/');
+
 if($_SERVER['SERVER_ADDR']=='127.0.0.1'){
 	define('PROJECT_DIR', '/sun-cashmere/');
 }
@@ -8,12 +9,15 @@ else{
 	define('PROJECT_DIR', '/');
 }
 
-//echo 'APP_PATH: ' . APP_PATH . '<br />';
+// echo 'APP_PATH: ' . APP_PATH . '<br />';
+
 // open debug mode
 define('APP_DEBUG', true);
 //echo $_SERVER['DOCUMENT_ROOT'];
-// load framework file 
+
+// load framework file
 require(APP_PATH.'frameworkCore/FrameWorkCore.php');
+
 // load function library
 require(APP_PATH . 'frameworkCore/Common.php');
 
