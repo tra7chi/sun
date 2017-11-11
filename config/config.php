@@ -5,12 +5,6 @@ if($_SERVER['SERVER_ADDR'] == '127.0.0.1' ){
 	$config['db']['password'] = '';
 	$config['db']['dbname'] = 'sun_cashmere';
 }
-// else if ($_SERVER['SERVER_ADDR']== 'localhost') {
-// 	$config['db']['host'] = 'localhost';
-// 	$config['db']['username'] = 'root';
-// 	$config['db']['password'] = '';
-// 	$config['db']['dbname'] = 'sun_cashmere';
-// }
 else{
 	$config['db']['host'] = 'db698300439.db.1and1.com';
 	$config['db']['username'] = 'dbo698300439';
