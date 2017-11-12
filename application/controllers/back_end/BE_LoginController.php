@@ -30,7 +30,7 @@ class BE_LoginController extends Controller{
 	public function logout(){
 		setcookie("employee_id",'', time()-3600);
 		setcookie("employee_username",'', time()-3600);
-		$this->assign('rewritePath', 'index');
+		$this->assign('redirectPage', 'index');
 		$this->index();
 	}
     public function welcome(){

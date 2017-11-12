@@ -61,7 +61,7 @@ class CartController extends Controller{
 		$cart = new CartModel();
 		unset($cart->data[$_POST['product_id']]);
 		$cart->save();
-		//$this->assign('rewritePath','cart');
+		//$this->assign('redirectPage','cart');
 		//$this->cart();
 	}
 }

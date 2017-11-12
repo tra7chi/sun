@@ -44,7 +44,7 @@
 						<label for="customer_is_activated">Aktivierung:</label>
                     </div>
                     <div class="horizontal_layout  col-9 input_margin">
-						<input name="customer_is_activated" type="checkbox" value="1"  <?php echo isset($item['customer_is_activated']) ? dealSelectComponent($item['customer_is_activated'],'1','c') : ''?>>
+						<input name="customer_is_activated" type="checkbox" value="1"  <?php echo isset($item['customer_is_activated']) ? handleSelectComponent($item['customer_is_activated'],'1','c') : ''?>>
                     </div>
                     <?php }?>
                     <div class="content_box contact_info  col-12  uppercase input_margin">
@@ -55,8 +55,8 @@
                     </div>
                     <div class="horizontal_layout  col-4 input_margin">
 						<select name="customer_gender" id="customer_gender" class="grey_border">
-                        	<option value="1" <?php echo isset($item['customer_gender']) ? dealSelectComponent($item['customer_gender'],'1','s') : '' ?> >Herr</option>
-                            <option value="0" <?php echo isset($item['customer_gender']) ? dealSelectComponent($item['customer_gender'],'0','s') : '' ?> >Frau</option>
+                        	<option value="1" <?php echo isset($item['customer_gender']) ? handleSelectComponent($item['customer_gender'],'1','s') : '' ?> >Herr</option>
+                            <option value="0" <?php echo isset($item['customer_gender']) ? handleSelectComponent($item['customer_gender'],'0','s') : '' ?> >Frau</option>
                         </select>
                     </div>
                     <div class="horizontal_layout  col-2 big_font input_margin">

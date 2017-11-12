@@ -155,7 +155,7 @@ function setOptions(component_name,list){
                 <label for="product_is_new">Neu:</label>
             </div>
             <div class="col-3 horizontal_layout input_margin">
-                <input name="product_is_new" id="product_is_new" type="checkbox" value="" <?php echo isset($items[0]['product_is_new']) ? dealSelectComponent($items[0]['product_is_new'],'1','c') : ''?> />
+                <input name="product_is_new" id="product_is_new" type="checkbox" value="" <?php echo isset($items[0]['product_is_new']) ? handleSelectComponent($items[0]['product_is_new'],'1','c') : ''?> />
             </div>
 
            

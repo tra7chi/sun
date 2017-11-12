@@ -110,8 +110,8 @@ $(function(){
                             </div>
                             <div class="horizontal_layout  col-9 input_margin">
                                 <select name="customer_gender" id="customer_gender" class="grey_border">
-                                    <option value="1" <?php echo dealSelectComponent($item[0]['customer_gender'],'1','s')?> >Herr</option>
-                                    <option value="0" <?php echo dealSelectComponent($item[0]['customer_gender'],'0','s')?> >Frau</option>
+                                    <option value="1" <?php echo handleSelectComponent($item[0]['customer_gender'],'1','s')?> >Herr</option>
+                                    <option value="0" <?php echo handleSelectComponent($item[0]['customer_gender'],'0','s')?> >Frau</option>
                                 </select>
                             </div>
                             <div class="horizontal_layout  col-2 big_font input_margin">

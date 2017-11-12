@@ -71,7 +71,7 @@ class BE_AccountController extends Controller{
 		$this->assign('class_desc', 'Kunde');
 		$this->assign('action_desc', 'hinzugef&uuml;gt');
         $this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index');
         $this->render();
     }
@@ -82,7 +82,7 @@ class BE_AccountController extends Controller{
 		$this->assign('class_desc', 'Kunde');
 		$this->assign('action_desc', 'gel&ouml;scht');
         $this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index');
         $this->render();
 	}
@@ -117,7 +117,7 @@ class BE_AccountController extends Controller{
 		$this->assign('class_desc', 'Kunde');
 		$this->assign('action_desc', 'hinzugef&uuml;gt');
         $this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index');
         $this->render();
 	}

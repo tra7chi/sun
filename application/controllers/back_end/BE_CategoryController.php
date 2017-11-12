@@ -50,7 +50,7 @@ class BE_CategoryController extends Controller{
 		$this->assign('class_desc', 'Men&uuml;');
 		$this->assign('action_desc', 'hinzugef&uuml;gt');
 		$this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index1');
 		$this->render();
 		
@@ -72,7 +72,7 @@ class BE_CategoryController extends Controller{
 		$this->assign('class_desc', 'Men&uuml;');
 		$this->assign('action_desc', 'hinzugef&uuml;gt');
         $this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index2');
         $this->render();
     }
@@ -132,7 +132,7 @@ class BE_CategoryController extends Controller{
 		$this->assign('action_desc', '&Auml;nderung');
         $this->assign('count', $count);
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index1');
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
         $this->render();
     }
         // 更新记录，测试框架DB记录更新（Update）
@@ -149,7 +149,7 @@ class BE_CategoryController extends Controller{
 		$this->assign('action_desc', '&Auml;nderung');
         $this->assign('count', $count);
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index2');
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
         $this->render();
     }
     // 删除记录，测试框架DB记录删除（Delete）
@@ -160,7 +160,7 @@ class BE_CategoryController extends Controller{
 		$this->assign('class_desc', 'Men&uuml;');
 		$this->assign('action_desc', 'gel&ouml;scht');
         $this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index1');
         $this->render();
     }
@@ -172,7 +172,7 @@ class BE_CategoryController extends Controller{
 		$this->assign('class_desc', 'Men&uuml;');
 		$this->assign('action_desc', 'gel&ouml;scht');
         $this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index2');
         $this->render();
     }

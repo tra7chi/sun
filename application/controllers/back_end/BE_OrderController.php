@@ -70,7 +70,7 @@ class BE_OrderController extends Controller {
 		$this->assign('class_desc', 'Bestellung');
 		$this->assign('action_desc', 'hinzugef&uuml;gt');
         $this->assign('count', $queryExecutionFeedback);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index');
         $this->render();
 	}
@@ -107,7 +107,7 @@ class BE_OrderController extends Controller {
 		$this->assign('class_desc', 'Bestellung');
 		$this->assign('action_desc', 'ge&auml;ndert');
         $this->assign('count', $queryExecutionFeedback);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index');
         $this->render();
 	}
@@ -130,7 +130,7 @@ class BE_OrderController extends Controller {
 		$this->assign('class_desc', 'Bestellung');
 		$this->assign('action_desc', 'gel&ouml;scht');
         $this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
 		$this->assign('goback',  PROJECT_DIR . $this->_controller . '/index');
         $this->render();
     }

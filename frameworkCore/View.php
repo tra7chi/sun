@@ -7,6 +7,7 @@ class View {
     protected $_controller;
     protected $_action;
 	protected $_feedback_content;
+	
     function __construct($controller, $action){
         $this->_controller = strtolower($controller);
         $this->_action = strtolower($action);
@@ -23,7 +24,7 @@ class View {
 		// print_r($this);
 		$controllerHeader = isset($header) ? $header : '';
 		$controllerFooter = isset($header) ? $header : '';
-		$redirectPage = isset($rewritePath) ? $rewritePath : '';
+		$redirectPage = isset($redirectPage) ? $redirectPage : '';
 		//echo $this->_controller;
 		//echo $redirectPage;
 		if(strpos($this->_controller,'be_') === 0){

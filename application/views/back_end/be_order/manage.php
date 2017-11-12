@@ -101,10 +101,10 @@ function row_edit(id,flag){
                     
                     <div class="horizontal_layout  col-3 input_margin">
 						<select name="order_status" id="order_status" class="grey_border">
-                        	<option value="1" <?php echo isset($item['order_status']) ? dealSelectComponent($item['order_status'],'1','s') : '' ?> >Zu bezahlen</option>
-                            <option value="2" <?php echo isset($item['order_status']) ? dealSelectComponent($item['order_status'],'2','s') : '' ?> >Bezahlt</option>
-                            <option value="3" <?php echo isset($item['order_status']) ? dealSelectComponent($item['order_status'],'3','s') : '' ?> >Versandt</option>
-                            <option value="4" <?php echo isset($item['order_status']) ? dealSelectComponent($item['order_status'],'4','s') : '' ?> >Zugestellt</option>
+                        	<option value="1" <?php echo isset($item['order_status']) ? handleSelectComponent($item['order_status'],'1','s') : '' ?> >Zu bezahlen</option>
+                            <option value="2" <?php echo isset($item['order_status']) ? handleSelectComponent($item['order_status'],'2','s') : '' ?> >Bezahlt</option>
+                            <option value="3" <?php echo isset($item['order_status']) ? handleSelectComponent($item['order_status'],'3','s') : '' ?> >Versandt</option>
+                            <option value="4" <?php echo isset($item['order_status']) ? handleSelectComponent($item['order_status'],'4','s') : '' ?> >Zugestellt</option>
                         </select>
                     </div>
 					<div class="horizontal_layout  col-2 big_font input_margin">
@@ -129,9 +129,9 @@ function row_edit(id,flag){
                     </div>
                     <div class="horizontal_layout  col-4 input_margin">
 						<select name="order_payment_type" id="customer_gender" class="grey_border">
-                        	<option value="1" <?php echo isset($item['order_payment_type']) ? dealSelectComponent($item['order_payment_type'],'1','s') : '' ?> >Kredit Karte</option>
-                            <option value="2" <?php echo isset($item['order_payment_type']) ? dealSelectComponent($item['order_payment_type'],'2','s') : '' ?> >&Uuml;berweisung</option>
-                            <option value="3" <?php echo isset($item['order_payment_type']) ? dealSelectComponent($item['order_payment_type'],'3','s') : '' ?> >PayPal</option>
+                        	<option value="1" <?php echo isset($item['order_payment_type']) ? handleSelectComponent($item['order_payment_type'],'1','s') : '' ?> >Kredit Karte</option>
+                            <option value="2" <?php echo isset($item['order_payment_type']) ? handleSelectComponent($item['order_payment_type'],'2','s') : '' ?> >&Uuml;berweisung</option>
+                            <option value="3" <?php echo isset($item['order_payment_type']) ? handleSelectComponent($item['order_payment_type'],'3','s') : '' ?> >PayPal</option>
                         </select>
                     </div>
 					
@@ -145,7 +145,7 @@ function row_edit(id,flag){
 						<label for="order_invoice_fee">Quittung:</label>
                     </div>
                     <div class="horizontal_layout  col-4 input_margin">
-						<input type="checkbox" id="order_invoice_fee" name="order_invoice_fee" class="" value="<?php echo isset($item['order_invoice_fee']) ? dealSelectComponent($item['order_invoice_fee'],'1','c') : '' ?>" />
+						<input type="checkbox" id="order_invoice_fee" name="order_invoice_fee" class="" value="<?php echo isset($item['order_invoice_fee']) ? handleSelectComponent($item['order_invoice_fee'],'1','c') : '' ?>" />
                     </div>
                     <div class="horizontal_layout  col-2 big_font input_margin">
 						<label for="order_delivery_fee">Geb&uuml;hren f&uuml;r Lieferung:</label>

@@ -32,7 +32,7 @@ class OrderController extends Controller{
 			$this->assign('items',$items);		
 		}
 		else{
-			$this->assign('rewritePath','address_or_login');
+			$this->assign('redirectPage','address_or_login');
 				
 		}
 		$this->render();
@@ -223,7 +223,7 @@ EOD;
 			$this->render();			
 		}
 		else{
-			$this->assign('rewritePath','order_error');
+			$this->assign('redirectPage','order_error');
 			$this->render();	
 		}
 	}

@@ -1,5 +1,5 @@
 <?php
-function dealSelectComponent($item,$value,$type){
+function handleSelectComponent($item,$value,$type){
 	if($item==$value){
 		if($type == 's')
 			return 'selected';
@@ -8,7 +8,7 @@ function dealSelectComponent($item,$value,$type){
 	}
 }
 
-function generateSelectOption($items,$valueName,$keyName,$key,$otherAttr){
+function generateSelectOption($items, $valueName, $keyName, $key, $otherAttr){
 	$option = '<option value="0">--Bitte w&auml;hlen Sie--</option>';
 	foreach ($items as $item){
 		$option = $option . '<option value="' . $item[$valueName] . '"'; 
@@ -22,6 +22,7 @@ function generateSelectOption($items,$valueName,$keyName,$key,$otherAttr){
 	return $option; 
 }
 
+// prevent pages from repeated submits
 function checkUnique($id){
 	session_start();
 	//echo $id;

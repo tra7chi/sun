@@ -15,6 +15,7 @@ class Controller {
     }
 
     // assign values to variables
+    // 
     public function assign($name, $value){
         $this->_view->assign($name, $value);
     }

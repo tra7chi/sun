@@ -27,7 +27,7 @@ class BE_ColorController extends Controller{
 		$this->assign('class_desc', 'Farbe');
 		$this->assign('action_desc', 'hinzugef&uuml;gt');
         $this->assign('count', $count);
-		$this->assign('rewritePath', PROJECT_DIR.'feedback');
+		$this->assign('redirectPage', PROJECT_DIR.'feedback');
         $this->render();
     }
    
@@ -62,7 +62,7 @@ class BE_ColorController extends Controller{
 		$this->assign('class_desc', 'Farbe');
 		$this->assign('action_desc', '&Auml;nderung');
         $this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
         $this->render();
     }
 
@@ -74,7 +74,7 @@ class BE_ColorController extends Controller{
 		$this->assign('class_desc', 'Farbe');
 		$this->assign('action_desc', 'gel&ouml;scht');
         $this->assign('count', $count);
-		$this->assign('rewritePath', 'feedback');
+		$this->assign('redirectPage', 'feedback');
         $this->render();
     }
 	
