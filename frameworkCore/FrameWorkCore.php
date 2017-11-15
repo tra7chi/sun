@@ -21,7 +21,7 @@ class FrameWorkCore{
         $this->route();
     }
 
-    // 路由处理
+    // route handler
     public function route(){
         $controllerName = $this->_config['defaultController'];
 		//echo 'controllerName: ' . $controllerName . '<br />';
@@ -36,7 +36,7 @@ class FrameWorkCore{
         // delete the content after ?
         $position = strpos($url, '?');
         $url = $position === false ? $url : substr($url, 0, $position);
-        // 删除前后的“/”
+        // remove "/" in the starting and end position
         $url = trim($url, '/');
 		//echo 'url: ' . $url . '<br />';
         if ($url) {
