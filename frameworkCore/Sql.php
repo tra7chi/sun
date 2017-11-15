@@ -1,6 +1,6 @@
 <?php 
 
-class Sql{
+class Sql {
     protected $_dbHandle;
     protected $_result;
     private $filter = '';
@@ -109,8 +109,7 @@ class Sql{
         return $sth->fetchAll();
 	}
 
-    // 将数组转换成插入格式的sql语句
-    // convert the array to a sql statement in the format of inserting data ???
+    // convert the array to a sql statement in the format of inserting data 
     private function formatInsert($data){
         $fields = array();
         $values = array();
@@ -125,8 +124,7 @@ class Sql{
         return sprintf("(%s) values (%s)", $field, $value);
     }
 
-    // 将数组转换成更新格式的sql语句
-    // convert the array to a sql statement in the format of updating data ???
+    // convert the array to a sql statement in the format of updating data 
     private function formatUpdate($data){
         $fields = array();
         foreach ($data as $key => $value) {
@@ -136,8 +134,7 @@ class Sql{
         return implode(',', $fields);
     }
 
-	// 将数组转换成连接格式的sql语句
-    // convert the array to a sql statement in the format of joining data ???
+    // convert the array to a sql statement in the format of joining data 
     private function formatJoin($table,$data){
         $fields = array();
 		$sql = '';

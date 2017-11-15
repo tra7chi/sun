@@ -35,7 +35,7 @@ class FrameWorkCore{
 
         // delete the content after ?
         $position = strpos($url, '?');
-        $url = $position === false ? $url : substr($url, 0, $position);
+        $url = ( $position === false ? $url : substr($url, 0, $position) );
         // echo 'url: ' . $url . '<br />';
 
         // remove "/" in the starting and end position
