@@ -24,64 +24,73 @@ class FrameWorkCore{
     // route handler
     public function route(){
         $controllerName = $this->_config['defaultController'];
-		//echo 'controllerName: ' . $controllerName . '<br />';
+		// echo 'controllerName: ' . $controllerName . '<br />';
         $actionName = $this->_config['defaultAction'];
-		//echo 'actionName: ' . $actionName . '<br />';
+		// echo 'actionName: ' . $actionName . '<br />';
         $param = array();
 
         $url = $_SERVER['REQUEST_URI'];
-		//$url = '/products/index/32refsadfqre';
-		//echo 'url: ' . $url . '<br />';
+		// $url = '/products/index/32refsadfqre';
+		// echo 'url: ' . $url . '<br />';
 
         // delete the content after ?
         $position = strpos($url, '?');
         $url = $position === false ? $url : substr($url, 0, $position);
+        // echo 'url: ' . $url . '<br />';
+
         // remove "/" in the starting and end position
         $url = trim($url, '/');
-		//echo 'url: ' . $url . '<br />';
+		// echo 'url: ' . $url . '<br />';
         if ($url) {
-            // 使用“/”分割字符串，并保存在数组中
+            // split $url by "/" and store the results in an array
             $urlArray = explode('/', $url);
-            // 删除空的数组元素
+            // print_r($urlArray);
+
+            // remove the empty array elements
             $urlArray = array_filter($urlArray);
-			//print_r($urlArray);
+			// print_r($urlArray);
+
 			//echo "<br>".strpos(PROJECT_DIR,$urlArray[0]);
-			if(strpos(PROJECT_DIR,$urlArray[0]) === 1)
+			if(strpos(PROJECT_DIR, $urlArray[0]) === 1){
 				array_shift($urlArray);
-			//}
+                
+			}
 			
-            // 获取控制器名
-			//print_r($urlArray);
-			if($urlArray!=null){
+            // get Controller name
+            // print_r($urlArray);
+			if($urlArray != null){
 				if(strpos($urlArray[0],'BE_') === 0){
 					$controllerName = substr($urlArray[0],0,3) . ucfirst(substr($urlArray[0],3));
 				}
-				else
+				else{
 					$controllerName = ucfirst($urlArray[0]);
+                }
 			}
-			else
+			else{
 				$controllerName = 'Index';
-            //echo 'controllerName: ' . $controllerName . '<br />';
-            // 获取动作名
+            }
+            // echo 'controllerName: ' . $controllerName . '<br />';
+
+            // get Action name
             array_shift($urlArray);
+            // print_r($urlArray);
             $actionName = $urlArray ? $urlArray[0] : $actionName;
             //echo 'actionName: ' . $actionName . '<br />';
-            // 获取URL参数
+
+            // get URL parameter
             array_shift($urlArray);
             $param = $urlArray ? $urlArray[0] : array();
-			//echo 'param: ' . $param . '<br />';
+            // print_r($param);
         }
 		
-        // 判断控制器和操作是否存在
+        // check if Controller and Action exist
         $controller = $controllerName . 'Controller';
-		//echo $controller;
+		// echo $controller;
         if (!class_exists($controller)) {
-            //exit();
-			exit($controller . '控制器不存在');
+			exit($controller . ' Controller does not exist !');
         }
         if (!method_exists($controller, $actionName)) {
-            //exit();
-			exit($actionName . '方法不存在');
+			exit($actionName . ' Action does not exist !');
         }
 
         // 如果控制器和操作名存在，则实例化控制器，因为控制器对象里面
@@ -95,7 +104,7 @@ class FrameWorkCore{
         //call_user_func_array(array($dispatch, $actionName), $param);
     }
 
-    // 检测开发环境
+    // inspect development environment 
     public function setReporting(){
         if (APP_DEBUG === true) {
             error_reporting(E_ALL);
@@ -108,13 +117,13 @@ class FrameWorkCore{
         }
     }
 
-    // 删除敏感字符
+    // remove sensitive characters
     public function stripSlashesDeep($value){
         $value = is_array($value) ? array_map(array($this, 'stripSlashesDeep'), $value) : stripslashes($value);
         return $value;
     }
 
-    // 检测敏感字符并删除
+    // detect and remove magic quotes 
     public function removeMagicQuotes(){
         if (get_magic_quotes_gpc()) {
             $_GET = isset($_GET) ? $this->stripSlashesDeep($_GET ) : '';

@@ -19,12 +19,12 @@ class BE_AccountController extends Controller{
 	public function manage($id = 0){
 		$item = array();
 		$item_address = array();
-        $postUrl = PROJECT_DIR.'be_account/add';
+        $postUrl = PROJECT_DIR.'BE_account/add';
 		$title = 'Einen neuen Kunde hinzuf&uumlgen';
         if ($id) {
 			$im = new AccountModel(1);
             $item = $im->select('customer_id',$id);
-            $postUrl = PROJECT_DIR.'be_account/update';
+            $postUrl = PROJECT_DIR.'BE_account/update';
 			$title = 'Einen Kunde &auml;ndern';
 			$im = new AccountModel(2);
 			$item_address = $im->select('customer_id',$id);
