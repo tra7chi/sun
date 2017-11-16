@@ -21,7 +21,10 @@ class FrameWorkCore{
         $this->route();
     }
 
-    // route handler
+    /*
+    ** route handler: get Controller and Action by URL;
+    ** otherwise, use default Controller and Action (Index)
+    */
     public function route(){
         $controllerName = $this->_config['defaultController'];
 		// echo 'controllerName: ' . $controllerName . '<br />';

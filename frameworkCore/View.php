@@ -24,10 +24,14 @@ class View {
 		// print_r($this);
 		$controllerHeader = isset($header) ? $header : '';
 		$controllerFooter = isset($header) ? $header : '';
+		/*
+		**  $redirectPage: main page content; 
+		**                 varies with form submission on View pages
+		*/
 		$redirectPage = isset($redirectPage) ? $redirectPage : '';
 		//echo $this->_controller;
 		//echo $redirectPage;
-		if(strpos($this->_controller,'be_') === 0){
+		if(strpos($this->_controller,'be_') === 0){ // back-end
 			$defaultHeader = APP_PATH . 'application/views/back_end/header.php';
         	$defaultFooter = APP_PATH . 'application/views/back_end/footer.php';
 			//echo strpos($this->_action,'add');
@@ -52,7 +56,7 @@ class View {
 			}
 			
 		}
-		else{
+		else{ // front-end
 			$defaultHeader = APP_PATH . 'application/views/front_end/header.php';
         	$defaultFooter = APP_PATH . 'application/views/front_end/footer.php';
         	if($redirectPage != ''){

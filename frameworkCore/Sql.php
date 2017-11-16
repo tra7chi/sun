@@ -31,6 +31,8 @@ class Sql {
     public function order($order = array()){
         if(isset($order)) {
             $this->filter .= ' ORDER BY ';
+
+            // join the array to be a string separated by comma
             $this->filter .= implode(',', $order);
         }
 
@@ -58,8 +60,8 @@ class Sql {
     }
 
     // delete by ID
-    public function delete($id_name,$id){
-        $sql = sprintf("delete from `%s` where `%s` = '%s'", $this->_table, $id_name,$id);
+    public function delete($id_name, $id){
+        $sql = sprintf("delete from `%s` where `%s` = '%s'", $this->_table, $id_name, $id);
         //echo $sql;
 		$sth = $this->_dbHandle->prepare($sql);
         $sth->execute();
@@ -67,7 +69,7 @@ class Sql {
         return $sth->rowCount();
     }
 
-    // customize SQL query and return the results
+    // customize SQL query statements and return the results
     public function query_r($sql){
 		//echo $this->filter;
         $sth = $this->_dbHandle->prepare($sql.$this->filter);
@@ -77,6 +79,7 @@ class Sql {
     }
 
     // 自定义SQL查询，返回影响的行数
+    // customize SQL query statements and return the number of affected rows
     public function query_c($sql){
 		//echo $sql;
         $sth = $this->_dbHandle->prepare($sql);
@@ -98,11 +101,10 @@ class Sql {
 		echo $sql;
         return $this->query_c($sql);
     }
-
 	
 	//data[0][0]->join table,data[0][1]->join column,data[0][2]->join type:i,l,r
 	public function joinSelect($data){
-		$sql = sprintf("SELECT `%s`.* %s %s",$this->_table,$this->formatJoin($this->_table,$data),$this->filter);
+		$sql = sprintf("SELECT `%s`.* %s %s", $this->_table, $this->formatJoin($this->_table, $data), $this->filter);
 		//echo $sql;
 		$sth = $this->_dbHandle->prepare($sql);
 		$sth->execute();
