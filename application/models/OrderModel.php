@@ -4,6 +4,7 @@
 */
 class OrderModel extends Model {
 	public $_table = 'sc_orders';
+
 	public function __construct($level = 0){
 		parent::__construct();
 		if($level == 1){
@@ -13,6 +14,7 @@ class OrderModel extends Model {
 			$this->_table = 'sc_orders';
 		}
 	}
+	
 	public function selectAll(){
 		$sql = sprintf('SELECT `%s`.*,`sc_customers`.`customer_firstname`,`sc_customers`.`customer_lastname` FROM `%s` INNER JOIN `sc_customers` ON `%s`.`customer_id` = `sc_customers`.`customer_id` ORDER BY `order_time`',$this->_table,$this->_table,$this->_table);
 		//echo $sql;

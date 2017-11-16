@@ -14,7 +14,7 @@ class ProductController extends Controller{
 			$pm->where(
 				array(
 					sprintf('`category_level_1_id` like \'%s\'', $keyword), 
-					' AND main_photo = 0'
+					' AND main_photo = 1'
 				)
 			);     
 
@@ -31,11 +31,17 @@ class ProductController extends Controller{
 			$pm->where(array('main_photo = 1'));
 			
         }
+
 		$data = array(
-					array('sc_product_photos','product_id','i')
-				);			
+					array(
+						'sc_product_photos', 
+						'product_id', 
+						'i'
+					)
+				);		
+
 		$products = $pm->joinSelect($data);
-		$this->assign('title',$title);
+		$this->assign('title', $title);
         $this->assign('keyword', $keyword);
         $this->assign('products', $products);
         $this->render();

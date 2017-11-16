@@ -1,10 +1,12 @@
 <?php
 function handleSelectComponent($item,$value,$type){
 	if($item==$value){
-		if($type == 's')
+		if($type == 's'){ // two options
 			return 'selected';
-		elseif($type == 'c')
+		}
+		elseif($type == 'c'){ // more than two options
 			return 'checked';
+		}
 	}
 }
 
@@ -22,7 +24,7 @@ function generateSelectOption($items, $valueName, $keyName, $key, $otherAttr){
 	return $option; 
 }
 
-// prevent pages from repeated submits
+// prevent pages from repeated submission
 function checkUnique($id){
 	session_start();
 	//echo $id;

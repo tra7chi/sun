@@ -13,9 +13,9 @@ for($i=0 ;$i<substr_count($dir, '/') -  $slant_count;$i++)// root is /,so we nee
 if(!isset($_SESSION)){
 	session_start();
 }
-$originator = mt_rand(0,1000000);
+$originator = mt_rand(0, 1000000);
 $_SESSION['originator'] = $originator;
-//print_r($_SESSION);
+// print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html>

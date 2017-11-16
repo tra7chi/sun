@@ -23,8 +23,8 @@ class Sql {
             $this->filter .= ' WHERE ';
             $this->filter .= implode(' ', $where);
         }
-        echo 'where condition: ' . $this->filter . '<br>';
-        
+        // echo 'where condition: ' . $this->filter . '<br>';
+
         return $this;
     }
 
@@ -141,7 +141,7 @@ class Sql {
     private function formatJoin($table,$data){
         $fields = array();
 		$sql = '';
-        for($i = 0;$i<count($data);$i++) {
+        for($i = 0; $i<count($data); $i++) {
 			$sql = $sql . ',`' . $data[$i][0] ."`.*"; 
 			if($data[$i][2] == 'i')
             	$fields[] = sprintf("INNER JOIN `%s` ON `%s`.`%s` = `%s`.`%s`", $data[$i][0],$table, $data[$i][1],$data[$i][0],$data[$i][1]);
