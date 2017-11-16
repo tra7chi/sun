@@ -17,17 +17,18 @@ class Sql {
         }
     }
 
-    // query conditions
+    // construct query conditions
     public function where($where = array()){
         if (isset($where)) {
             $this->filter .= ' WHERE ';
             $this->filter .= implode(' ', $where);
         }
-
+        echo 'where condition: ' . $this->filter . '<br>';
+        
         return $this;
     }
 
-    // sorting conditions
+    // construct sorting conditions
     public function order($order = array()){
         if(isset($order)) {
             $this->filter .= ' ORDER BY ';
