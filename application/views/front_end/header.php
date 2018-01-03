@@ -34,6 +34,7 @@ for($i=0 ;$i<substr_count($dir, '/') -  $slant_count;$i++)// root is /,so we nee
 
 <script type="text/javascript" src="<?php echo $relativePath?>static/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="<?php echo $relativePath?>static/js/jssocials.min.js"></script>
+<script type="text/javascript" src="<?php echo $relativePath?>static/js/header.js"></script>
 </head>
 <body>
 	<div class="page_container">

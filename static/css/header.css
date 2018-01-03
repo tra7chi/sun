@@ -94,6 +94,10 @@ header a {
 	position: relative;
 }
 
+header.nav_is_expanded .navigation_wrapper.level_2 {
+    display: block;
+}
+
 /*-------------------- navigation level 3 --------------------*/
 .navigation_wrapper.level_3 {
 	position: absolute;
