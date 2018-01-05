@@ -4,6 +4,19 @@ var SUN = SUN || {};
 (function() {
 
     $(function() {
+
+        /**
+         * through the parameter passed via url to determine which nav element is clicked
+         */
+        const index = window.location.href.indexOf('?');
+        let param = window.location.href.substring(index+1);
+        if(param === 'clicked=navi_shop') {
+            $('header').attr('class', 'nav_is_expanded');
+            $('#main_page_content').attr('class', 'move_down_60px');
+        }
+
+
+
         $('.navigation_element').on('click', function() {
 
             if($(this).hasClass('level_1')){
@@ -26,16 +39,12 @@ var SUN = SUN || {};
          * then keep the navigation being expanded,
          * which menas move the main content downwards by 60px
          */
-        $('header .navigation_element.level_2').on('click', function(){
+        $('header .navigation_element.level_2').on('click', function(e){
             // $('header').addClass('nav_is_expanded');
             // $('#main_page_content').addClass('move_down_60px');
-            if($(this).find('a').attr('href') == window.location.href){
-
-            }
-            console.log(window.location.href);
-            console.log($(this).find('a').attr('href'));
-            $('header').attr('class', 'nav_is_expanded');
-            $('#main_page_content').attr('class', 'move_down_60px');
+            e.preventDefault();
+            window.location.href = $(this).attr('href') + '?clicked=navi_shop';
+            
         });
         
 
