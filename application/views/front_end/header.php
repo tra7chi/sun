@@ -48,7 +48,7 @@ for($i=0 ;$i<substr_count($dir, '/') -  $slant_count;$i++)// root is /,so we nee
             <div class="header_element header_navigation col-8">
                 <nav>
                     <ul class="navigation_wrapper level_1">
-                        <li class="navigation_element level_1 ">
+                        <li class="navigation_element level_1 navi_collection">
                             <a href="#">Kollektion</a>
                             <ul class="navigation_wrapper level_2">
                                 <li class="navigation_element level_2">
@@ -93,20 +93,20 @@ for($i=0 ;$i<substr_count($dir, '/') -  $slant_count;$i++)// root is /,so we nee
                                     </ul>
                                 </li>
                                 </ul>
-                                <ul class="col-6">
-                                    <li class="navigation_element level_2">
+                                <ul class=" col-6">
+                                    <li class="navigation_element level_2 navi_shop_women">
                                         <a href="<?php echo $project_dir?>product/index/sdfsr32refsa">Damen</a>
                                     </li>
-                                    <li class="navigation_element level_2">
+                                    <li class="navigation_element level_2 navi_shop_men">
                                         <a href="<?php echo $project_dir?>product/index/32refsadfqre">Herren</a>
                                     </li>
-                                    <li class="navigation_element level_2">
+                                    <li class="navigation_element level_2 nav_shop_kids">
                                         <a href="<?php echo $project_dir?>product/index/1e78e6af5c86">Kinder</a>
                                     </li>
-                                    <li class="navigation_element level_2">
+                                    <li class="navigation_element level_2 navi_shop_home">
                                         <a href="<?php echo $project_dir?>product/index/2295678a6596">Home</a>
                                     </li>
-                                    <li class="navigation_element level_2">
+                                    <li class="navigation_element level_2 navi_shop_sale">
                                         <a href="<?php echo $project_dir?>product/index/038d3e7b8c7a">Sale</a>
                                     </li>
                                 </ul>

@@ -22,7 +22,7 @@ header a {
     font-size: 1.5rem;
     text-decoration: none;
     display: inline-block;
-    color: #535353;
+    color: #333333;
     font-family: 'butler-medium', Fallback, sans-serif;
 }
 
@@ -43,7 +43,7 @@ header a {
 
 .header_navigation li:hover > a,
 .header_navigation li.active > a {
-	color: #000000;
+	color: #868686;
 }
 
 /*-------------------- navigation level 1 --------------------*/
@@ -84,18 +84,27 @@ header a {
     display: block;
 }
 
-.navigation_element.level_1:hover .navigation_wrapper.level_2,
-.navigation_element.level_1.active .navigation_wrapper.level_2 {
+.navigation_element.level_1.active .navigation_wrapper.level_2, 
+.navigation_element.level_1:hover .navigation_wrapper.level_2 {
 	display: inline-flex;
 	justify-content: center;
+}
+
+.navigation_element.level_1.navi_shop.active .navigation_wrapper.level_2, 
+.navigation_element.level_1.navi_shop:hover .navigation_wrapper.level_2 {
+	justify-content: space-between;
 }
 
 .navigation_element.level_2 {
 	position: relative;
 }
 
-header.nav_is_expanded .navigation_wrapper.level_2 {
+/* header .level_1.active .navigation_wrapper.level_2 {
     display: block;
+} */
+
+.navigation_element.active {
+    color: #868686;
 }
 
 /*-------------------- navigation level 3 --------------------*/
