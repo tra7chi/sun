@@ -94,7 +94,7 @@ for($i=0 ;$i<substr_count($dir, '/') -  $slant_count;$i++)// root is /,so we nee
                                 </li>
                                 </ul>
                                 <ul class=" col-6">
-                                    <li class="navigation_element level_2 navi_shop_women">
+                                    <li class="navigation_element level_2 navi_shop_women" id="navi_shop_women">
                                         <a href="<?php echo $project_dir?>product/index/sdfsr32refsa">Damen</a>
                                     </li>
                                     <li class="navigation_element level_2 navi_shop_men">
