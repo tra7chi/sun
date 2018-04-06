@@ -1,34 +1,54 @@
-/* =============== Breakpoints =============== 
- * Mobile: 
- * 320, 480, 640, 768, 992
- * Laptop:
- * ----------- Non-Retina Screens ----------- 
- * @media screen 
- * and (min-device-width: 1200px) 
- * and (max-device-width: 1600px) 
- * and (-webkit-min-device-pixel-ratio: 1) { 
- * }
- * ----------- Retina Screens ----------- 
-   @media screen 
-   and (min-device-width: 1200px) 
-   and (max-device-width: 1600px) 
-   and (-webkit-min-device-pixel-ratio: 2)
-   and (min-resolution: 192dpi) { 
-   }
- * 
- * =============== Column Classes =============== 
- * general column class : col-*
- * [1200px, ): col-* (general column class)
- * [992px, 1200px): col-tl-*  (tablet large)
- * [768px, 992px): col-tm-*  (tablet medium)
- * [640px, 768px): col-ts-*  (tablet small)
- * [480px, 640px): col-pm-*  (phone medium)
- * [320px, 480px): col-ps-*  (phone small)
- *
- */
+.col-12 {
+    width: 100%;
+}
+
+.col-11 {
+    width: 91.66666666%;
+}
+
+.col-10 {
+    width: 83.33333333%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-8 {
+    width: 66.66666666%;
+}
+
+.col-7 {
+    width: 58.33333333%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-5 {
+    width: 41.66666666%;
+}
+
+.col-4 {
+    width: 33.33333333%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-2 {
+    width: 16.66666666%;
+}
+
+.col-1 {
+    width: 8.33333333%;
+}
 
 
-/*----------------  col-*  ---------------- */
+
+/*----------------  col-lg-*  ---------------- */
 
 @media screen and (min-width: 1200px) {
     .header_container,
@@ -36,101 +56,111 @@
         width: 1200px;
     }
 
-    .col-12 {
+    .col-lg-12 {
         width: 100%;
     }
 
-    .col-11 {
+    .col-lg-11 {
         width: 91.66666666%;
     }
 
-    .col-10 {
+    .col-lg-10 {
         width: 83.33333333%;
     }
 
-    .col-9 {
+    .col-lg-9 {
         width: 75%;
     }
 
-    .col-8 {
+    .col-lg-8 {
         width: 66.66666666%;
     }
 
-    .col-7 {
+    .col-lg-7 {
         width: 58.33333333%;
     }
 
-    .col-6 {
+    .col-lg-6 {
         width: 50%;
     }
 
-    .col-5 {
+    .col-lg-5 {
         width: 41.66666666%;
     }
 
-    .col-4 {
+    .col-lg-4 {
         width: 33.33333333%;
     }
 
-    .col-3 {
+    .col-lg-3 {
         width: 25%;
     }
 
-    .col-2 {
+    .col-lg-2 {
         width: 16.66666666%;
     }
 
-    .col-1 {
+    .col-lg-1 {
         width: 8.33333333%;
     }
 }
 
-/*----------------  col-tl-*  (tablet large)  ---------------- */
+
+
+
+/*----------------  col-md-* (medium)  ---------------- */
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
     .header_container {
         width: 992px;
     }
 
-    .col-tl-12 {
+    .col-md-12 {
         width: 100%;
     }
-    .col-tl-11 {
+    .col-md-11 {
         width: 91.66666666%;
     }
-    .col-tl-10 {
+    .col-md-10 {
         width: 83.33333333%;
     }
-    .col-tl-9 {
+    .col-md-9 {
         width: 75%;
     }
-    .col-tl-8 {
+    .col-md-8 {
         width: 66.66666666%;
     }
-    .col-tl-7 {
+    .col-md-7 {
         width: 58.33333333%;
     }
-    .col-tl-6 {
+    .col-md-6 {
         width: 50%;
     }
-    .col-tl-5 {
+    .col-md-5 {
         width: 41.66666666%;
     }
-    .col-tl-4 {
+    .col-md-4 {
         width: 33.33333333%;
     }
-    .col-tl-3 {
+    .col-md-3 {
         width: 25%;
     }
-    .col-tl-2 {
+    .col-md-2 {
         width: 16.66666666%;
     }
-    .col-tl-1 {
+    .col-md-1 {
         width: 8.33333333%;
     }
 }
 
-/*----------------  col-tm-*  (tablet medium) ---------------- */
+
+
+
+
+
+
+
+/*----------------  col-sm-* (small) ---------------- */
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
     header,
@@ -139,45 +169,52 @@
         width: 768px;
     }
 
-    .col-tm-12 {
+    .col-sm-12 {
         width: 100%;
     }
-    .col-tm-11 {
+    .col-sm-11 {
         width: 91.66666666%;
     }
-    .col-tm-10 {
+    .col-sm-10 {
         width: 83.33333333%;
     }
-    .col-tm-9 {
+    .col-sm-9 {
         width: 75%;
     }
-    .col-tm-8 {
+    .col-sm-8 {
         width: 66.66666666%;
     }
-    .col-tm-7 {
+    .col-sm-7 {
         width: 58.33333333%;
     }
-    .col-tm-6 {
+    .col-sm-6 {
         width: 50%;
     }
-    .col-tm-5 {
+    .col-sm-5 {
         width: 41.66666666%;
     }
-    .col-tm-4 {
+    .col-sm-4 {
         width: 33.33333333%;
     }
-    .col-tm-3 {
+    .col-sm-3 {
         width: 25%;
     }
-    .col-tm-2 {
+    .col-sm-2 {
         width: 16.66666666%;
     }
-    .col-tm-1 {
+    .col-sm-1 {
         width: 8.33333333%;
     }
 }
 
-/*----------------  col-ts-*  (tablet small)  ---------------- */
+
+
+
+
+
+
+
+/*----------------  col-xs-* (extremly small)  ---------------- */
 
 @media screen and (min-width: 640px) and (max-width: 767px) {
     header,
@@ -186,47 +223,57 @@
         width: 640px;
     }
 
-    .col-ts-12 {
+    .col-xs-12 {
         width: 100%;
     }
-    .col-ts-11 {
+    .col-xs-11 {
         width: 91.66666666%;
     }
-    .col-ts-10 {
+    .col-xs-10 {
         width: 83.33333333%;
     }
-    .col-ts-9 {
+    .col-xs-9 {
         width: 75%;
     }
-    .col-ts-8 {
+    .col-xs-8 {
         width: 66.66666666%;
     }
-    .col-ts-7 {
+    .col-xs-7 {
         width: 58.33333333%;
     }
-    .col-ts-6 {
+    .col-xs-6 {
         width: 50%;
     }
-    .col-ts-5 {
+    .col-xs-5 {
         width: 41.66666666%;
     }
-    .col-ts-4 {
+    .col-xs-4 {
         width: 33.33333333%;
     }
-    .col-ts-3 {
+    .col-xs-3 {
         width: 25%;
     }
-    .col-ts-2 {
+    .col-xs-2 {
         width: 16.66666666%;
     }
-    .col-ts-1 {
+    .col-xs-1 {
         width: 8.33333333%;
     }
 }
 
 
-/*----------------  col-pm-*  (phone medium)  ---------------- */
-@media screen and (min-width: 480px) and (max-width: 639px) {
+
+
+
+
+
+
+/* use this breakpoint for mobile phone in a medium size, so column classes start with 'col-pm-*' */
+
+
+/*@media screen and (min-width: 480px) and (max-width: 639px) {*/
+
+@media screen and (max-width: 639px) {
     header,
     footer,
     .page_container {
@@ -272,8 +319,18 @@
 }
 
 
-/*----------------  col-ps-*  (phone medium)  ---------------- */
-@media screen and (min-width: 320px) and (max-width: 479px) {
+
+
+
+
+
+
+/* use this breakpoint for mobile phone in a small size, so column classes start with 'col-ps-*' */
+
+
+/*@media screen and (min-width: 320px) and (max-width: 479px) {*/
+
+@media screen and (max-width: 479px) {
     header,
     footer,
     .page_container {

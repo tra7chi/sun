@@ -105,12 +105,42 @@ input.lang{
 </style>
 <script>
 $(function(){
+	$('.edit_view').hide();
 	$('#add_order').click(function(){
 		if($('#abg').prop('checked')){
 			document.frmValidate.submit();
 		}
 	});
-
+	$('#change_to_edit').click(function(){
+		$('.show_view').hide();
+		$('.edit_view').show();
+	});
+	$('#change_to_show').click(function(){
+		$('#customer_email').text($('#customer_email_edit').val());
+		$('#customer_mobile').text($('#customer_mobile_edit').val());
+		$('#customer_firstname').text($('#customer_firstname_edit').val());
+		$('#customer_lastname').text($('#customer_lastname_edit').val());
+		$('#address_street').text($('#address_street_edit').val());
+		$('#address_street_number').text($('#address_street_number_edit').val());
+		$('#address_zipcode').text($('#address_zipcode_edit').val());
+		$('#address_city').text($('#address_city_edit').val());
+		$('#address_country').text($('#address_country_edit').val());
+		$('.show_view').show();
+		$('.edit_view').hide();
+	});
+	$('#no_change_to_show').click(function(){
+		$('#customer_email_edit').val($('#customer_email').text());
+		$('#customer_mobile_edit').val($('#customer_mobile').text());
+		$('#customer_firstname_edit').val($('#customer_firstname').text());
+		$('#customer_lastname_edit').val($('#customer_lastname').text());
+		$('#address_street_edit').val($('#address_street').text());
+		$('#address_street_number_edit').val($('#address_street_number').text());
+		$('#address_zipcode_edit').val($('#address_zipcode').text());
+		$('#address_city_edit').val($('#address_city').text());
+		$('#address_country_edit').val($('#address_country').text());
+		$('.show_view').show();
+		$('.edit_view').hide();
+	});
 });
 </script>
 <div id="main_page_content">
@@ -146,16 +176,28 @@ $(function(){
                     </div>
                 </div>
                  <div class=" font_small">RECHNUNGADRESS:</div>
-                 <div class=" font_small">
-                 	<div class="padding_bottom"><a href="">&Auml;ndern</a></div>
-                 	<div class="padding_bottom">Email: <?php echo isset($address[0]['customer_email'])?$address[0]['customer_email']:''?></div>
-                    <div class="padding_bottom">Tel.: <?php echo isset($address[0]['customer_mobile'])?$address[0]['customer_mobile']:''?> </div>
-                    <div class="padding_bottom"><?php echo isset($address[0]['customer_firstname'])?$address[0]['customer_firstname']:''?> <?php echo isset($address[0]['customer_lastname'])?$address[0]['customer_lastname']:''?></div>
-                    <div class="padding_bottom"><?php echo isset($address[0]['address_street'])?$address[0]['address_street']:''?> <?php echo isset($address[0]['address_street_number'])?$address[0]['address_street_number']:''?></div>
-                    <div class="padding_bottom"><?php echo isset($address[0]['address_zipcode'])?$address[0]['address_zipcode']:''?> <?php echo isset($address[0]['address_city'])?$address[0]['address_city']:''?></div>
-                    <div class="padding_bottom"><?php echo isset($address[0]['address_state'])?$address[0]['address_state']:''?> <?php echo isset($address[0]['address_country'])?$address[0]['address_country']:''?></div>
+                 <div class="show_view font_small">
+                 	<div class="padding_bottom"><span id="change_to_edit" style="cursor:pointer">&Auml;ndern</span></div>
+                 	<div class="padding_bottom"><span id="customer_email">Email: <?php echo isset($address[0]['customer_email'])?$address[0]['customer_email']:''?></span></div>
+                    <div class="padding_bottom">Tel.: <span id="customer_mobile"><?php echo isset($address[0]['customer_mobile'])?$address[0]['customer_mobile']:''?></span></div>
+                    <div class="padding_bottom"><span id="customer_firstname"><?php echo isset($address[0]['customer_firstname'])?$address[0]['customer_firstname']:''?></span> <span id="customer_lastname"><?php echo isset($address[0]['customer_lastname'])?$address[0]['customer_lastname']:''?></span></div>
+                    <div class="padding_bottom"><span id="address_street"><?php echo isset($address[0]['address_street'])?$address[0]['address_street']:''?></span> <span id="address_street_number"><?php echo isset($address[0]['address_street_number'])?$address[0]['address_street_number']:''?></span></div>
+                    <div class="padding_bottom"><span id="address_zipcode"><?php echo isset($address[0]['address_zipcode'])?$address[0]['address_zipcode']:''?></span> <span id="address_city"><?php echo isset($address[0]['address_city'])?$address[0]['address_city']:''?></span></div>
+                    <div class="padding_bottom"><span id="address_country"><?php echo isset($address[0]['address_country'])?$address[0]['address_country']:''?></span></div>
                     
                  </div>
+                 
+                 <div class="edit_view font_small">
+                 	<div class="padding_bottom"><span id="change_to_show" style="cursor:pointer">Speichen</span>&nbsp;&nbsp;<span id="no_change_to_show" style="cursor:pointer">Abbrechen</span></div>
+                 	<div class="padding_bottom">Email: <input class='grey_border big_textbox' type="text" name="customer_email_edit" id="customer_email_edit" value="<?php echo isset($address[0]['customer_email'])?$address[0]['customer_email']:''?>" /></div>
+                    <div class="padding_bottom">Tel.: &nbsp;&nbsp; <input class='grey_border big_textbox' type="text" name="customer_mobile_edit" id="customer_mobile_edit" value="<?php echo isset($address[0]['customer_mobile'])?$address[0]['customer_mobile']:''?>" /> </div>
+                    <div class="padding_bottom"><input class='grey_border middle_textbox' type="text" name="customer_firstname_edit" id="customer_firstname_edit" value="<?php echo isset($address[0]['customer_firstname'])?$address[0]['customer_firstname']:''?>" /> <input class='grey_border middle_textbox' type="text" name="customer_lastname_edit" id="customer_lastname_edit" value="<?php echo isset($address[0]['customer_lastname'])?$address[0]['customer_lastname']:''?>" /></div>
+                    <div class="padding_bottom"><input class='grey_border middle_textbox' type="text" name="address_street_edit" id="address_street_edit" value="<?php echo isset($address[0]['address_street'])?$address[0]['address_street']:''?>" /> <input class='grey_border middle_textbox' type="text" name="address_street_number_edit" id="address_street_number_edit" value="<?php echo isset($address[0]['address_street_number'])?$address[0]['address_street_number']:''?>" /></div>
+                    <div class="padding_bottom"><input class='grey_border middle_textbox' type="text" name="address_zipcode_edit" id="address_zipcode_edit" value="<?php echo isset($address[0]['address_zipcode'])?$address[0]['address_zipcode']:''?>" /> <input class='grey_border middle_textbox' type="text" name="address_city_edit" id="address_city_edit" value="<?php echo isset($address[0]['address_city'])?$address[0]['address_city']:''?>" /></div>
+                    <div class="padding_bottom"><input class='grey_border middle_textbox' type="text" name="address_state_edit" id="address_state_edit" value="<?php echo isset($address[0]['address_state'])?$address[0]['address_state']:''?>" /> <input class='grey_border middle_textbox' type="text" name="address_country_edit" id="address_country_edit" value="<?php echo isset($address[0]['address_country'])?$address[0]['address_country']:''?>" /></div>
+                    
+                 </div>
+                 
                  <div class="bottom_grey_line"></div>
                  <div class="font_small">
                  <input id="abg" name="abg" type="checkbox" value="" /> Ich habe die <a href="">AGB</a> gelesen und erkl&auml;re mich mit ihnen einverstanden. Ich wurd &uuml;ber mein <a href="">Widerrufsrecht</a> informiert.	

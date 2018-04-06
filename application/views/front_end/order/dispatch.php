@@ -1,3 +1,6 @@
+<?php 
+
+?>
 <style>
 input.grey_border,select.grey_border{
 	border:1px solid #CCC;
@@ -107,6 +110,15 @@ div.sub_title{
                 <div class="col-9 horizontal_layout padding_both">
                 	<input type="hidden" value="<?php echo $address_id?>" id="address_id" name="address_id" >
                 	<input type="hidden" value="<?php echo $coupon_id?>" id="coupon_id" name="coupon_id" >
+                    <input type="hidden" value="<?php echo $guest_address['customer_email']?>" id="customer_email" name="customer_email" >
+                    <input type="hidden" value="<?php echo $guest_address['order_receiver_lastname']?>" id="order_receiver_lastname" name="order_receiver_lastname" >
+                    <input type="hidden" value="<?php echo $guest_address['order_receiver_firstname']?>" id="order_receiver_firstname" name="order_receiver_firstname" >
+                    <input type="hidden" value="<?php echo $guest_address['order_address_street']?>" id="order_address_street" name="order_address_street" >
+                    <input type="hidden" value="<?php echo $guest_address['order_address_street_number']?>" id="order_address_street_number" name="order_address_street_number" >
+                    <input type="hidden" value="<?php echo $guest_address['order_address_zipcode']?>" id="order_address_zipcode" name="order_address_zipcode" >
+                    <input type="hidden" value="<?php echo $guest_address['order_address_city']?>" id="order_address_city" name="order_address_city" >
+                    <input type="hidden" value="<?php echo $guest_address['order_address_country']?>" id="order_address_country" name="order_address_country" >
+                    <input type="hidden" value="<?php echo $guest_address['order_contact_phone_number']?>" id="order_contact_phone_number" name="order_contact_phone_number" >
                 </div>
                 <div class="col-1 horizontal_layout padding_both"><input type="submit" value="ZUR KASSE" class="black_button to_check_out"></div>
              </div>

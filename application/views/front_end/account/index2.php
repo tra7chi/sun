@@ -131,7 +131,7 @@ div.input_margin{
                 <input type="text" id="customer_fax" name="customer_fax" class="grey_border" />
             </div>
             <div class="horizontal_layout  col-2 big_font input_margin">
-                <label for="customer_mobile">Mobiltelefon::</label>
+                <label for="customer_mobile">Mobiltelefon:</label>
             </div>
             <div class="horizontal_layout  col-9 input_margin">
                 <input type="text" id="customer_mobile" name="customer_mobile" class="grey_border" />
@@ -140,7 +140,8 @@ div.input_margin{
                 * Pflichtfeld
             </div>
             <div class="horizontal_layout middle_font  col-12 input_margin">
-            <input type="hidden" name="originator" value="<?php echo $originator ?>" />
+            	<input type="hidden" name="originator" value="<?php echo $originator ?>" />
+            	<input type="hidden" name="flag" value="<?php echo $flag?>" />
                 <input type="submit" value="Speichen" class="black_button" />
             </div>
             </form>

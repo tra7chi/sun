@@ -6,18 +6,18 @@ class Model extends Sql{
     protected static $_dbConfig = array();
 
     public function __construct(){
-        // connect to DB
-        $this->connect(self::$_dbConfig['host'], self::$_dbConfig['username'], self::$_dbConfig['password'], self::$_dbConfig['dbname']);
+        // 连接数据库
+        $this->connect(self::$_dbConfig['host'], self::$_dbConfig['username'], self::$_dbConfig['password'],
+            self::$_dbConfig['dbname']);
 
-        // get DB table name
+        // 获取数据库表名
         if (!$this->_table) {
-            // get the name of Model class 
+            // 获取模型类名称
             $this->_model = get_class($this);
-            // delete 'Model' substring from Model class name 
+            // 删除类名最后的 Model 字符
             $this->_model = substr($this->_model, 0, -5);
 
-            // make DB table name and class name consistent (either uppercase or lowercase)
-            // or in strict way, make them to be the same
+            // 数据库表名与类名一致
             $this->_table = strtolower($this->_model);
         }
     }

@@ -1,16 +1,14 @@
 <?php
 function handleSelectComponent($item,$value,$type){
 	if($item==$value){
-		if($type == 's'){ // two options
+		if($type == 's')
 			return 'selected';
-		}
-		elseif($type == 'c'){ // more than two options
+		elseif($type == 'c')
 			return 'checked';
-		}
 	}
 }
 
-function generateSelectOption($items, $valueName, $keyName, $key, $otherAttr){
+function generateSelectOption($items,$valueName,$keyName,$key,$otherAttr){
 	$option = '<option value="0">--Bitte w&auml;hlen Sie--</option>';
 	foreach ($items as $item){
 		$option = $option . '<option value="' . $item[$valueName] . '"'; 
@@ -24,7 +22,6 @@ function generateSelectOption($items, $valueName, $keyName, $key, $otherAttr){
 	return $option; 
 }
 
-// prevent pages from repeated submission
 function checkUnique($id){
 	session_start();
 	//echo $id;

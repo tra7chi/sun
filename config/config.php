@@ -1,8 +1,8 @@
 <?php
-if($_SERVER['SERVER_ADDR'] == '127.0.0.1' ){
+if($_SERVER['SERVER_ADDR']=='127.0.0.1'){
 	$config['db']['host'] = '127.0.0.1';
 	$config['db']['username'] = 'root';
-	$config['db']['password'] = '';
+	$config['db']['password'] = 'Che1uZ0j';
 	$config['db']['dbname'] = 'sun_cashmere';
 }
 else{
@@ -11,8 +11,7 @@ else{
 	$config['db']['password'] = 'Sun-cash16';
 	$config['db']['dbname'] = 'db698300439';
 }
-
-// assign default Controller and Action names 
+// 默认控制器和操作名
 $config['defaultController'] = 'Index';
 $config['defaultAction'] = 'index';
 
