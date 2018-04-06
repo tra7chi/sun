@@ -73,9 +73,11 @@ $(function(){
 		var par = {customer_email: $("#customer_email").val(),customer_password: $("#customer_password").val()};
 		$.post($('#PROJECT_DIR').val() + 'account/login',par,feedback);
 	});
+	$('#guest').click(function(){
+		window.location.href=$('#PROJECT_DIR').val() + "order/address_guest";
+	});
 	$('#register').click(function(){
-		var par = {customer_email: $("#customer_email").val(),customer_password: $("#customer_password").val()};
-		$.post($('#PROJECT_DIR').val() + 'account/login',par,feedback);
+		window.location.href=$('#PROJECT_DIR').val() + "account/index2/order";
 	});
 });
 function feedback(data){
@@ -109,7 +111,7 @@ function feedback(data){
                         	<div>Bestellen Sie ganz einfach ohne Registrierung.</div>
                         </div>
                         <div>
-                            <input type="button" value="WEITER" id="gast" class="black_button"  />
+                            <input type="button" value="WEITER" id="guest" class="black_button"  />
                         </div>
                     </div>
                     <div class="col-4 horizontal_layout">

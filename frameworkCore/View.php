@@ -1,44 +1,39 @@
 <?php
 /**
- * Base Class of View
+ * 视图基类
  */
-class View {
+class View{
     protected $variables = array();
     protected $_controller;
     protected $_action;
 	protected $_feedback_content;
-	
     function __construct($controller, $action){
         $this->_controller = strtolower($controller);
         $this->_action = strtolower($action);
     }
  
-    // assign values to variables
+    // 分配变量
     public function assign($name, $value){
         $this->variables[$name] = $value;
     }
  
-    // render view
+    // 渲染显示
     public function render(){
         extract($this->variables);
-		// print_r($this);
+		//print_r($this);
 		$controllerHeader = isset($header) ? $header : '';
-		$controllerFooter = isset($header) ? $header : '';
-		/*
-		**  $redirectPage: main page content; 
-		**                 varies with form submission on View pages
-		*/
+		$controllerFooter = isset($footer) ? $footer : '';
 		$redirectPage = isset($redirectPage) ? $redirectPage : '';
 		//echo $this->_controller;
 		//echo $redirectPage;
-		if(strpos($this->_controller,'be_') === 0){ // back-end
+		if(strpos($this->_controller,'be_') === 0){
 			$defaultHeader = APP_PATH . 'application/views/back_end/header.php';
         	$defaultFooter = APP_PATH . 'application/views/back_end/footer.php';
 			//echo strpos($this->_action,'add');
 			//echo $_COOKIE["employee_id"];
 			if (isset($_COOKIE["employee_id"])){
 				if($redirectPage != ''){
-					$controllerLayout = APP_PATH . 'application/views/back_end/' . $this->_controller . '/' . $redirectPage . '.php';
+					$controllerLayout = APP_PATH . 'application/views/back_end/' . $redirectPage . '.php';
 				}
 				else{
 					$controllerLayout = APP_PATH . 'application/views/back_end/' . $this->_controller . '/' . $this->_action . '.php';
@@ -56,17 +51,17 @@ class View {
 			}
 			
 		}
-		else{ // front-end
+		else{
 			$defaultHeader = APP_PATH . 'application/views/front_end/header.php';
         	$defaultFooter = APP_PATH . 'application/views/front_end/footer.php';
         	if($redirectPage != ''){
-				$controllerLayout = APP_PATH . 'application/views/front_end/' . $this->_controller . '/' . $redirectPage . '.php';
+				$controllerLayout = APP_PATH . 'application/views/front_end/' . $redirectPage . '.php';
 			}
 			else{
 				$controllerLayout = APP_PATH . 'application/views/front_end/' . $this->_controller . '/' . $this->_action . '.php';
 			}
 		}
-        // import page header file
+        // 页头文件
 		//echo '$controllerHeader:'.$controllerHeader.'<br />';
 		//echo '$controllerLayout:'.$controllerLayout.'<br />';
         if (file_exists($controllerHeader)) {
@@ -76,7 +71,7 @@ class View {
 			include ($defaultHeader); 
         include ($controllerLayout);
         
-        // import page footer file
+        // 页脚文件
         if (file_exists($controllerFooter)) {
             include ($controllerFooter);
         }

@@ -41,13 +41,15 @@ class CartController extends Controller{
 		$items = $im->joinSelect($data);
 		//print_r($items);
 		$htmlStr = '';
+		$sum = 0;
 		for($i = 0; $i<count($items);$i++){
 			$htmlStr .= '<div  class="cart_product_div"><div><img src="../../static/upload/product_photo/' . $items[$i]['product_sn'] . '/' . $items[$i]['photo_name'] . '" width="100%"/></div>
 						 <div>'.$items[$i]['product_name'].'</div>
 						 <div>'.$cart->data[$items[$i]['product_id']]['count'].'</div>
 						 <div>'.$cart->data[$items[$i]['product_id']]['price'] * $cart->data[$items[$i]['product_id']]['count'].' &euro;</div></div>'; 
+			$sum = $sum + $cart->data[$items[$i]['product_id']]['price'] * $cart->data[$items[$i]['product_id']]['count'];
 		}
-		echo $htmlStr;
+		echo $htmlStr. '##^^$$' . count($items). '##^^$$' . $sum;
 	}
 	function update(){
 		$product_id = isset($_POST["product_id"]) ? $_POST["product_id"] : '';

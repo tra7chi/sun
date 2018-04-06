@@ -2,51 +2,28 @@
  
 class ProductController extends Controller{
     // 首页方法，测试框架自定义DB查询
-
-    /*
-	** index(): default controller action
-    */
     public function index($keyword){
-    	// echo 'keyword: ' . $keyword . '<br>';
         $title = '';
 		$pm = new ProductModel();
 		if ($keyword) {
-			$pm->where(
-				array(
-					sprintf('`category_level_1_id` like \'%s\'', $keyword), 
-					' AND main_photo = 1'
-				)
-			);     
-
+			$pm->where(array(sprintf('`category_level_1_id` like \'%s\'',$keyword),' AND main_photo = 1'));            
 			$cm = new CategoryModel(1);
-			$cm->where(
-				array(
-					sprintf('`category_level_1_id` =\'%s\'', $keyword )
-				)
-			);
-			$category = $cm->selectAll('category_level_1_id', $keyword);
-			// print_r($category);
+			$cm->where(array(sprintf('`category_level_1_id` =\'%s\'',$keyword )));
+			$category = $cm->selectAll('category_level_1_id',$keyword);
 			$title = $category[0]['category_level_1_name'];
         } else {
 			$pm->where(array('main_photo = 1'));
 			
         }
-
 		$data = array(
-					array(
-						'sc_product_photos', 
-						'product_id', 
-						'i'
-					)
-				);		
-
+					array('sc_product_photos','product_id','i')
+				);			
 		$products = $pm->joinSelect($data);
-		$this->assign('title', $title);
+		$this->assign('title',$title);
         $this->assign('keyword', $keyword);
         $this->assign('products', $products);
         $this->render();
     }
-
     public function manage($id = 0){
         $item = array();
         $postUrl = PROJECT_DIR.'product/update';

@@ -19,6 +19,7 @@ class BE_CategoryController extends Controller{
     }
      public function index2(){
         $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+		//echo $keyword;
 		$im = new CategoryModel(2);
         if ($keyword) {			
             $items = $im->search($keyword);

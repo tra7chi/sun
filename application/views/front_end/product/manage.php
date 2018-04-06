@@ -24,16 +24,21 @@ for($i = 0;$i < count($item_colors);$i++){
 							<div class="middle_font">' . $item_colors[$i]['color_name_de'] . '</div></div>';
 }								
 $html_str .= '</div>
-			  	<div class="product_text big_font uppercase">Gr&ouml;&szlig;e: '.$item[0]['product_size'].'</div>
-				<div class="product_text bigger_font">Preis: <span id="product_price">'.$item[0]['product_selling_price'].'</span> &euro; <span class="big_font">(inkl. Mwst 19%)</span></div>
-				<div class="product_text big_font uppercase">Menge: <input type="number" id="product_count" class="grey_border small_textbox" value="1"></div>
-				<div>Beschreibung:</div>
-				<div>' . $item[0]['product_description'] . '</div>
-				<div class="product_text big_font">
+			  	<div class="product_text big_font uppercase">Gr&ouml;&szlig;e: '.$item[0]['product_size'].'</div>';
+				if(isset($_COOKIE['customer_id'])){
+	$html_str = $html_str.'<div class="product_text bigger_font">Preis: <span id="product_price">'.$item[0]['product_selling_price'].'</span> &euro; <span class="big_font">(inkl. Mwst 19%)</span></div>
+				<div class="product_text big_font uppercase">Menge: <input type="number" id="product_count" class="grey_border small_textbox" value="1"></div>';
+				}
+	
+	$html_str = $html_str.'<div>Beschreibung:</div>
+				<div>' . $item[0]['product_description'] . '</div>';
+				if(isset($_COOKIE['customer_id'])){
+				$html_str = $html_str. '<div class="product_text big_font">
 					<a href="#" class="black_button uppercase" id="insertTowunschlist"><span class="middle_font">In dem Wunschlist</span></a>
 					<a href="#" class="black_button uppercase" id="insertToCart"><span class="middle_font">In dem Warenkorb</span></a>
-				</div>
-				<div id="share"></div>
+				</div>';
+				}
+				$html_str = $html_str. '<div id="share"></div>
 			  </div>
 <input type="hidden" id="product_id" value="'.$item[0]['product_id'].'"><input type="hidden" id="PROJECT_DIR" value="'.PROJECT_DIR.'">';
 ?>
@@ -141,6 +146,7 @@ input.small_textbox{
 
 <script>
 $(function(){
+	 setCart();
 	$('img.photos').click(function(){
 		$("#main_photo").attr('src' , $(this).attr('src'));
 	});
@@ -173,8 +179,6 @@ $(function(){
 			cache: false,
 			success: function(data){
 				var temp = data.split('$$');
-				$('#header_cart').html(temp[0]);
-				$('#sum_money').html(temp[1]);
 				$('#feedback_count').text($('#product_count').val());
 				$('#feedback_name').text($('#product_name').text());
 				$('#feedback_photo').attr('src',$('#main_photo').attr('src'));
@@ -202,7 +206,7 @@ $(function(){
 		window.location.href = $('#PROJECT_DIR').val() + 'order/cart';
 	});
 	$('#to_check_out').click(function(){
-		window.location.href = $('#PROJECT_DIR').val() + 'order/checkout';
+		window.location.href = $('#PROJECT_DIR').val() + 'order/validate';
 	});
 	$("#share").jsSocials({
             shares: ["email", "twitter", "facebook", "googleplus",  "whatsapp"]
@@ -210,7 +214,10 @@ $(function(){
 });
 function setCart(){
 	$.post($('#PROJECT_DIR').val() + "Cart/setCartView",function(data){
-		$('#cart_view').html(data);	
+		var info = data.split("##^^$$");
+		$('#cart_view').html(info[0]);
+		$('#header_cart').html(info[1]);
+		$('#sum_money').html(info[2]);	
 	});
 }
 </script>

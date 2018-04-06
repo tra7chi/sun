@@ -14,7 +14,7 @@
     			</tr>
     			<?php foreach ($items as $item): ?>
         		<tr>
-                	<td><img src='../static/upload/product_photo/<?php echo $item['product_sn'] ?>/1.jpg' width='50px' /> </td>
+                	<td><img src='../static/upload/product_photo/<?php echo $item['product_sn'] ?>/<?php echo $item['photo_name'] ?>' width='50px' /> </td>
             		<td class="big_font"><?php echo $item['product_sn'] ?></td>
                     <td class="big_font"><?php echo $item['product_name'] ?></td>
                     <td class="big_font"><?php echo $item['category_level_1_name'] ?></td>

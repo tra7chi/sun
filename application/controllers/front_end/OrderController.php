@@ -22,6 +22,10 @@ class OrderController extends Controller{
 		$item = $im->select('coupon_code',$_POST['coupon_code']);
 		echo json_encode($item);
 	}
+	function address_guest(){
+		$this->assign('title','ADRESSDATEN');
+		$this->render();
+	}
 	function address(){
 		$coupon_id = isset($_POST['coupon_id']) ? $_POST['coupon_id'] : '';
 		$this->assign('title','ADRESSDATEN');
@@ -32,7 +36,7 @@ class OrderController extends Controller{
 			$this->assign('items',$items);		
 		}
 		else{
-			$this->assign('redirectPage','address_or_login');
+			$this->assign('redirectPage','order/address_or_login');
 				
 		}
 		$this->render();
@@ -40,6 +44,18 @@ class OrderController extends Controller{
 	function dispatch(){
 		$coupon_id = isset($_POST['coupon_id']) ? $_POST['coupon_id'] : '';
 		$address_id = isset($_POST['address_id']) ? $_POST['address_id'] : '';
+		if($address_id == ''){
+			$data['order_address_country'] = isset($_POST['address_country']) ? $_POST['address_country'] : '';
+			$data['order_address_city'] = isset($_POST['address_city']) ? $_POST['address_city']: '';
+			$data['order_address_street'] = isset($_POST['address_street']) ? $_POST['address_street']: '';
+			$data['order_address_street_number'] = isset($_POST['address_street_number']) ? $_POST['address_street_number']: '';
+			$data['order_address_zipcode'] = isset($_POST['address_zipcode']) ? $_POST['address_zipcode']: '';
+			$data['order_contact_phone_number'] = isset($_POST['address_tel']) ? $_POST['address_tel']: '';
+			$data['order_receiver_firstname'] = isset($_POST['address_firstname']) ? $_POST['address_firstname']: '';
+			$data['order_receiver_lastname'] = isset($_POST['address_lastname']) ? $_POST['address_lastname']: '';
+			$data['customer_email'] = isset($_POST['address_email']) ? $_POST['address_email']: '';
+			$this->assign('guest_address',$data);
+		}
 		$this->assign('title','VERSAND & BEZAHLMETHODE');
 		$this->assign('address_id',$address_id);
 		$this->assign('coupon_id',$coupon_id);		
@@ -59,15 +75,32 @@ class OrderController extends Controller{
 		$items = $im->select_from_cart($product_id_list);
 		$this->assign('items',$items);
 		
-		$im = new CouponModel(0);
-		$coupon = $im->select('coupon_id',$coupon_id);
+		if($coupon_id!=''){
+			$im = new CouponModel(0);
+			$coupon = $im->select('coupon_id',$coupon_id);
+		}
+		else
+			$coupon = array();
 		$this->assign('coupon',$coupon);
 		
-		$im = new AccountModel(1);
-		$address = $im->select_address($address_id);
+		if($address_id!=''){
+			$im = new AccountModel(1);
+			$address = $im->select_address($address_id);
+			
+		}		
+		else{
+			$address[0]['customer_email'] = isset($_POST['customer_email']) ? $_POST['customer_email'] : ''; 
+			$address[0]['customer_mobile'] = isset($_POST['order_contact_phone_number']) ? $_POST['order_contact_phone_number'] : ''; 
+			$address[0]['customer_firstname'] = isset($_POST['order_receiver_firstname']) ? $_POST['order_receiver_firstname'] : ''; 
+			$address[0]['customer_lastname'] = isset($_POST['order_receiver_lastname']) ? $_POST['order_receiver_lastname'] : ''; 
+			$address[0]['address_street'] = isset($_POST['order_address_street']) ? $_POST['order_address_street'] : ''; 
+			$address[0]['address_street_number'] = isset($_POST['order_address_street_number']) ? $_POST['order_address_street_number'] : ''; 
+			$address[0]['address_zipcode'] = isset($_POST['order_address_zipcode']) ? $_POST['order_address_zipcode'] : ''; 
+			$address[0]['address_city'] = isset($_POST['order_address_city']) ? $_POST['order_address_city'] : ''; 
+			$address[0]['address_state'] = isset($_POST['order_address_state']) ? $_POST['order_address_state'] : ''; 
+			$address[0]['address_country'] = isset($_POST['order_address_country']) ? $_POST['order_address_country'] : ''; 
+		}
 		$this->assign('address',$address);
-		
-		
 		
 		
 		$this->assign('title','BEST&Auml;TIGUNG');
@@ -78,9 +111,6 @@ class OrderController extends Controller{
 	function add(){
 		$count = 0;
 		if(checkUnique($_POST['originator'])){
-			$address_id = isset($_POST['address_id']) ? $_POST['address_id'] : '';
-			$im = new AccountModel(1);
-			$address = $im->select_address($address_id);
 			$coupon_value = isset($_POST['coupon_value']) ? $_POST['coupon_value'] : 0;
 			$coupon_id = isset($_POST['coupon_id']) ? $_POST['coupon_id'] : '';
 			$logistics_id = isset($_POST['logistics_id']) ? $_POST['logistics_id'] : ''; // not use now
@@ -97,20 +127,19 @@ class OrderController extends Controller{
 			$data['order_status'] = 1;
 			$data['order_memo'] = '';//not use now
 			$data['order_payment_type'] = $order_payment_type;
-			$data['order_address_country'] = isset($address[0]['address_country']) ? $address[0]['address_country'] : '';
-			$data['order_address_state'] = isset($address[0]['address_state']) ? $address[0]['address_state'] : '';;
-			$data['order_address_city'] = isset($address[0]['address_city']) ? $address[0]['address_city']: '';
-			$data['order_address_county'] = isset($address[0]['address_county']) ? $address[0]['address_county']: '';
-			$data['order_address_street'] = isset($address[0]['address_street']) ? $address[0]['address_street']: '';
-			$data['order_address_street_number'] = isset($address[0]['address_street_number']) ? $address[0]['address_street_number']: '';
-			$data['order_address_zipcode'] = isset($address[0]['address_zipcode']) ? $address[0]['address_zipcode']: '';
+			$data['order_address_country'] = isset($_POST['address_country_edit']) ? $_POST['address_country_edit'] : '';
+			$data['order_address_city'] = isset($_POST['address_city_edit']) ? $_POST['address_city_edit']: '';
+			$data['order_address_county'] = isset($_POST['address_county_edit']) ? $_POST['address_counry_edit']: '';
+			$data['order_address_street'] = isset($_POST['address_street_edit']) ? $_POST['address_street_edit']: '';
+			$data['order_address_street_number'] = isset($_POST['address_street_number_edit']) ? $_POST['address_street_number_edit']: '';
+			$data['order_address_zipcode'] = isset($_POST['address_zipcode_edit']) ? $_POST['address_zipcode_edit']: '';
 			$data['coupon_fee'] = $coupon_value;
 			$data['order_invoice_fee'] = '0';//not use now
 			$data['order_delivery_fee'] = '0';//not use now
 			$data['order_other_fee'] = '0';
-			$data['order_contact_phone_number'] = isset($address[0]['address_tel']) ? $address[0]['address_tel']: '';
-			$data['order_receiver_firstname'] = isset($address[0]['address_firstname']) ? $address[0]['address_firstname']: '';
-			$data['order_receiver_lastname'] = isset($address[0]['address_lastname']) ? $address[0]['address_lastname']: '';
+			$data['order_contact_phone_number'] = isset($_POST['address_tel_edit']) ? $_POST['address_tel_edit']: '';
+			$data['order_receiver_firstname'] = isset($_POST['address_firstname_edit']) ? $_POST['address_firstname_edit']: '';
+			$data['order_receiver_lastname'] = isset($_POST['address_lastname_edit']) ? $_POST['address_lastname_edit']: '';
 			$im = new OrderModel(0);
 			$count = $im->add($data);
 		}

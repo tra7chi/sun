@@ -8,10 +8,12 @@ class BE_ProductController extends Controller{
         if ($keyword) {
             $items = $im->search($keyword);
         } else {
+			$im->where(array('`main_photo` = 1'));
 			$im->order(array('product_sn'));
             $items = $im->joinSelect(array(
 				array('sc_product_category_level_one','category_level_1_id','i'),
-				array('sc_product_category_level_two','category_level_2_id','i')	
+				array('sc_product_category_level_two','category_level_2_id','i'),
+				array('sc_product_photos','product_id','i')	
 			));
         }
 

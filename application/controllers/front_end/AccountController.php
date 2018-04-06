@@ -6,9 +6,14 @@ class AccountController extends Controller{
 		$this->assign('postUrl',PROJECT_DIR.'account/login');
         $this->render();
     }
-	public function index2(){
+	public function index2($keyword = ''){
+		//echo $keyword;
 		$this->assign('title','Registrieren');
 		$this->assign('postUrl',PROJECT_DIR.'account/register');
+		if($keyword == 'order')
+			$this->assign('flag','0');
+		else
+			$this->assign('flag','1');
         $this->render();
     }
     public function login(){
@@ -28,9 +33,13 @@ class AccountController extends Controller{
     }
 	 public function logout(){
 		setcookie('customer_id','', time()-3600,'/');
+		$this->assign('title','Anmeldung');
+		$this->assign('redirectPage','account/index1');
+        $this->render();
     }
     public function register(){
 		$count = 0;
+		$flag = isset($_POST['flag']) ? $_POST['flag'] : '0';
 		if(checkUnique($_POST['originator'])){
 			$data['customer_id'] = md5(uniqid());
 			$data['customer_sn'] = 'C' . date("Ymdhs");
@@ -60,6 +69,14 @@ class AccountController extends Controller{
 			$im = new AccountModel(2);
 			$count = $im->add($data1);
 		}
-        $this->render();
+		if($flag == '0'){// register between shopping
+			$this->login();
+			$this->assign('redirectPage','order/dispatch');
+			$this->assign('title','VERSAND & BEZAHLMETHODE');
+			$this->assign('address_id',$data1['address_id']);
+			$this->assign('coupon_id','');		
+		}
+		$this->render();
+        
     }
 }

@@ -11,10 +11,11 @@ $html_str = $html_str.'<div class="col-3 horizontal_layout product_cell">
 							'</div>
 							<div class="product_text middle_font grey">'
 								.$product['product_size'].
-							'</div>
-							<div class="product_text big_font">'
-								.$product['product_selling_price'].
-							' &euro; </div></a>
+							'</div>';
+if(isset($_COOKIE['customer_id'])){
+	$html_str = $html_str.'<div class="product_text big_font">'.$product['product_selling_price'].' &euro; </div>';
+}							
+							$html_str = $html_str.'</a>
 						</div>';
 
 }
@@ -26,7 +27,7 @@ $html_str = $html_str.'<div class="col-3 horizontal_layout product_cell">
 			<div class="main_container">
 				<div class="main_content_container row">
 					<div class="col-12 catelogy_title_short bigger_font_size">
-                    	<?php echo $title;?>
+                    	<?php echo $title;?> 
                     </div>
                     <div class="col-12">
                     	<?php echo $html_str;?>
